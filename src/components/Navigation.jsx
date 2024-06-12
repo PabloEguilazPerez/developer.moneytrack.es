@@ -190,8 +190,8 @@ export const navigation = [
       { title: 'Introduction', href: '/' },
       //{ title: 'SDKs', href: '/sdks' },
       { title: 'Autenticación', href: '/authentication' },
-      { title: 'Pagination', href: '/pagination' },
-      { title: 'Errors', href: '/errors' },
+      { title: 'Paginacion', href: '/pagination' },
+      { title: 'Errores', href: '/errors' },
       { title: 'Webhooks', href: '/webhooks' },
     ],
   },
@@ -200,9 +200,12 @@ export const navigation = [
     links: [
       { title: 'Usuario', href: '/usuario' },
       { title: 'Categorias', href: '/categorias' },
+      { title: 'WebHooks', href: '/webhooks' },
       { title: 'Presupuestos', href: '/presupuestos' },
       { title: 'Transacciones', href: '/transacciones' },
-      { title: 'Empresas', href: '/empresas' }
+      { title: 'Movimientos Recurrentes', href: '/recurrentMoves' },
+      { title: 'Empresas', href: '/empresas' },
+      { title: 'Divisas', href: '/divisas' }
     ],
   },
 ]
@@ -212,7 +215,7 @@ export function Navigation(props) {
     <nav {...props}>
       <ul role="list">
         <TopLevelNavItem href="./">API</TopLevelNavItem>
-        <TopLevelNavItem href="https://moneytrack.betteruptime.com/">State</TopLevelNavItem>
+        <TopLevelNavItem href="https://moneytrack.betteruptime.com/">Estado</TopLevelNavItem>
         {navigation.map((group, groupIndex) => (
           <NavigationGroup
             key={group.title}

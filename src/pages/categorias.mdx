@@ -1,139 +1,140 @@
-export const description =
-  'On this page, we’ll dive into the different user endpoints you can use to manage users programmatically.'
+<?php
 
-# Categorias
+$description = 'On this page, we’ll dive into the different user endpoints you can use to manage users programmatically.';
 
-Como sugiere el nombre, las categorias son una parte central del MoneyTrack. En esta página, profundizaremos en los diferentes puntos finales de usuario que puede utilizar para administrar categorias mediante programación. Veremos cómo consultar, crear, actualizar y eliminar categorias. {{ className: 'lead' }}
+echo "# Categorias\n\n";
+echo "Como sugiere el nombre, las categorias son una parte central del MoneyTrack. En esta página, profundizaremos en los diferentes puntos finales de usuario que puede utilizar para administrar categorias mediante programación. Veremos cómo consultar, crear, actualizar y eliminar categorias.\n\n";
 
-## Modelo Categorias
+echo "## Modelo Categorias\n\n";
+echo "El modelo de categoria contiene toda la información sobre sus categorias, como su id y nombre.\n\n";
 
-El modelo de categoria contiene toda la información sobre sus categorias, como su id y nombre.
+echo "### Propiedades\n\n";
+echo "<Properties>\n";
+echo "  <Property name=\"id\" type=\"int\">\n";
+echo "    Identificador unico de la categoria\n";
+echo "  </Property>\n";
+echo "  <Property name=\"nombre\" type=\"string\">\n";
+echo "    Nombre de la categoria\n";
+echo "  </Property>\n";
+echo "</Properties>\n\n";
 
-### Propiedades
+echo "---\n\n";
 
-<Properties>
-  <Property name="id" type="int">
-    Identificador unico de la categoria
-  </Property>
-  <Property name="nombre" type="string">
-    Nombre de la categoria
-  </Property>
-</Properties>
+echo "## Listar Categorias {{ tag: 'GET', label: '/categorias' }}\n\n";
+echo "<Row>\n";
+echo "  <Col>\n";
+echo "    Listar todas las categorias\n";
+echo "  </Col>\n";
+echo "  <Col sticky>\n";
+echo "    <CodeGroup title=\"Request\" tag=\"GET\" label=\"/user\">\n\n";
+echo "    ```php\n";
+echo "    $ch = curl_init();\n";
+echo "    curl_setopt($ch, CURLOPT_URL, 'https://api.moneytrack.es/categorias');\n";
+echo "    curl_setopt($ch, CURLOPT_HTTPHEADER, array('Token: {token}'));\n";
+echo "    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);\n";
+echo "    $response = curl_exec($ch);\n";
+echo "    curl_close($ch);\n";
+echo "    echo $response;\n";
+echo "    ```\n";
+echo "    </CodeGroup>\n\n";
+echo "    ```json\n";
+echo "    [\n";
+echo "      {\n";
+echo "        \"id\": 1,\n";
+echo "        \"nombre\": \"Recibos\"\n";
+echo "      },\n";
+echo "      {\n";
+echo "        \"id\": 2,\n";
+echo "        \"nombre\": \"Compras\"\n";
+echo "      }\n";
+echo "    ]\n";
+echo "    ```\n";
+echo "  </Col>\n";
+echo "</Row>\n\n";
 
----
+echo "---\n\n";
 
-## Listar Categorias {{ tag: 'GET', label: '/categorias' }}
+echo "## Obtener una categoria {{ tag: 'GET', label: '/categorias/:id' }}\n\n";
+echo "<Row>\n";
+echo "  <Col>\n";
+echo "    Obtener una categoria por id\n";
+echo "  </Col>\n";
+echo "  <Col sticky>\n";
+echo "    <CodeGroup title=\"Request\" tag=\"GET\" label=\"/categorias/:id\">\n\n";
+echo "    ```php\n";
+echo "    $ch = curl_init();\n";
+echo "    curl_setopt($ch, CURLOPT_URL, 'https://api.moneytrack.es/categorias/:id');\n";
+echo "    curl_setopt($ch, CURLOPT_HTTPHEADER, array('Token: {token}'));\n";
+echo "    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);\n";
+echo "    $response = curl_exec($ch);\n";
+echo "    curl_close($ch);\n";
+echo "    echo $response;\n";
+echo "    ```\n";
+echo "    </CodeGroup>\n\n";
+echo "    ```json\n";
+echo "    {\n";
+echo "      \"id\": 1,\n";
+echo "      \"nombre\": \"Recibos\"\n";
+echo "    }\n";
+echo "    ```\n";
+echo "  </Col>\n";
+echo "</Row>\n\n";
 
-<Row>
-  <Col>
+echo "---\n\n";
 
-    Listar todas las categorias
+echo "## Crear Categoria {{ tag: 'POST', label: '/categorias' }}\n\n";
+echo "<Row>\n";
+echo "  <Col>\n";
+echo "    Crear una categoria\n\n";
+echo "    ### Atributos Requeridos\n\n";
+echo "    <Properties>\n";
+echo "      <Property name=\"nombre\" type=\"string\">\n";
+echo "        Nombre de la categoria\n";
+echo "      </Property>\n";
+echo "    </Properties>\n\n";
+echo "  </Col>\n";
+echo "  <Col sticky>\n";
+echo "    <CodeGroup title=\"Request\" tag=\"POST\" label=\"/categorias\">\n\n";
+echo "      ```php\n";
+echo "      $ch = curl_init();\n";
+echo "      curl_setopt($ch, CURLOPT_URL, 'https://api.moneytrack.es/categorias');\n";
+echo "      curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json', 'Token: {token}'));\n";
+echo "      curl_setopt($ch, CURLOPT_POST, true);\n";
+echo "      curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode(array('nombre' => 'Nueva Categoria')));\n";
+echo "      curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);\n";
+echo "      $response = curl_exec($ch);\n";
+echo "      curl_close($ch);\n";
+echo "      echo $response;\n";
+echo "      ```\n";
+echo "    </CodeGroup>\n\n";
+echo "    ```json\n";
+echo "    {\n";
+echo "      \"id\": 1,\n";
+echo "      \"message\": \"Categoria creada\"\n";
+echo "    }\n";
+echo "    ```\n";
+echo "  </Col>\n";
+echo "</Row>\n\n";
 
-  </Col>
-  <Col sticky>
+echo "---\n\n";
 
-    <CodeGroup title="Request" tag="GET" label="/user">
-
-    ```bash {{ title: 'cURL' }}
-    curl -G https://api.moneytrack.es/categorias \
-      -H "Token: {token}" \
-    ```
-    </CodeGroup>
-
-    ```json {{ title: 'Respuesta' }}
-    [
-      {
-        "id": 1,
-        "nombre": "Recibos"
-      },
-      {
-        "id": 2,
-        "nombre": "Compras"
-      }
-    ]
-    ```
-
-  </Col>
-</Row>
-
----
-
-## Obtener una categoria {{ tag: 'GET', label: '/categorias/:id' }}
-
-<Row>
-
-  <Col>
-    Obtener una categoria por id
-  </Col>
-  <Col sticky>
-
-    <CodeGroup title="Request" tag="GET" label="/categorias/:id">
-
-
-    ```bash {{ title: 'cURL' }}
-    curl -G https://api.moneytrack.es/categorias/:id \
-      -H "Token: {token}" \
-    ```
-    </CodeGroup>
-
-    ```json {{ title: 'Response' }}
-    {
-      "id": 1,
-      "nombre": "Recibos"
-    }
-    ```
-
-  </Col>
-  
-</Row>
-
-
----
-
-## Crear Categoria {{ tag: 'POST', label: '/categorias' }}
-
-<Row>
-  <Col>
-
-    Crear una categoria
-
-    ### Atributos Requeridos
-
-    <Properties>
-      <Property name="nombre" type="string">
-        Nombre de la categoria
-      </Property>
-    </Properties>
-
-  </Col>
-  <Col sticky>
-
-    <CodeGroup title="Request" tag="POST" label="/categorias">
-
-      ```bash {{ title: 'cURL' }}
-      curl -G https://api.moneytrack.es/categorias/:id \
-        -H "Token: {token}" \
-      ```
-
-    </CodeGroup>
-
-    ```json {{ title: 'Response' }}
-    {
-      "id": 1,
-      "message": "Categoria creada"
-    }
-    ```
-
-  </Col>
-</Row>
-
----
-
-## Actualizar Categoria {{ tag: 'PUT', label: '/categoria/:id' }}
-
-<Row>
-  <Col>
-
+echo "## Actualizar Categoria {{ tag: 'PUT', label: '/categoria/:id' }}\n\n";
+echo "<Row>\n";
+echo "  <Col>\n";
+echo "    Actualizar una categoria\n\n";
+echo "    ### Atributos Requeridos\n\n";
+echo "    <Properties>\n";
+echo "      <Property name=\"dato\" type=\"string\">\n";
+echo "        Dato que se desea actualizar\n";
+echo "      </Property>\n";
+echo "      <Property name=\"valor\" type=\"string\">\n";
+echo "        Nuevo valor\n";
+echo "      </Property>\n";
+echo "    </Properties>\n\n";
+echo "  </Col>\n";
+echo "  <Col sticky>\n";
+echo "    <CodeGroup title=\"Request\" tag=\"PUT\" label=\"/categoria/:id\">\n\n";
+echo "    ```php\n";
     Actualizar una categoria
 
     ### Atributos Requeridos
@@ -155,6 +156,7 @@ El modelo de categoria contiene toda la información sobre sus categorias, como 
 
     ```bash {{ title: 'cURL' }}
     curl -X PUT https://api.moneytrack.es/categorias/:id \
+      -H 'Content-Type: application/json' \
       -H "Token: {token}" \
     ```
     </CodeGroup>
@@ -198,4 +200,3 @@ El modelo de categoria contiene toda la información sobre sus categorias, como 
 
   </Col>
 </Row>
-

@@ -39,10 +39,10 @@ const FeedbackForm = forwardRef(function FeedbackForm({ onSubmit }, ref) {
       className="absolute inset-0 flex items-center justify-center gap-6 md:justify-start"
     >
       <p className="text-sm text-zinc-600 dark:text-zinc-400">
-        Was this page helpful?
+        ¿Fue útil esta página?
       </p>
       <div className="group grid h-8 grid-cols-[1fr,1px,1fr] overflow-hidden rounded-full border border-zinc-900/10 dark:border-white/10">
-        <FeedbackButton data-response="yes">Yes</FeedbackButton>
+        <FeedbackButton data-response="yes">Si</FeedbackButton>
         <div className="bg-zinc-900/10 dark:bg-white/10" />
         <FeedbackButton data-response="no">No</FeedbackButton>
       </div>
@@ -58,7 +58,7 @@ const FeedbackThanks = forwardRef(function FeedbackThanks(_props, ref) {
     >
       <div className="flex items-center gap-3 rounded-full bg-emerald-50/50 py-1 pr-3 pl-1.5 text-sm text-emerald-900 ring-1 ring-inset ring-emerald-500/20 dark:bg-emerald-500/5 dark:text-emerald-200 dark:ring-emerald-500/30">
         <CheckIcon className="h-5 w-5 flex-none fill-emerald-500 stroke-white dark:fill-emerald-200/20 dark:stroke-emerald-200" />
-        Thanks for your feedback!
+        ¡Gracias por tus comentarios!
       </div>
     </div>
   )
@@ -145,12 +145,12 @@ function PageNavigation() {
     <div className="flex">
       {previousPage && (
         <div className="flex flex-col items-start gap-3">
-          <PageLink label="Previous" page={previousPage} previous />
+          <PageLink label="Anterior" page={previousPage} previous />
         </div>
       )}
       {nextPage && (
         <div className="ml-auto flex flex-col items-end gap-3">
-          <PageLink label="Next" page={nextPage} />
+          <PageLink label="Siguiente" page={nextPage} />
         </div>
       )}
     </div>

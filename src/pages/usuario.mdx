@@ -3,7 +3,7 @@ export const description =
 
 # Usuarios
 
-Como sugiere el nombre, los usuarios son una parte central del Protocolo; la razón por la que existe el Protocolo es para que pueda tener conversaciones seguras con sus usuarios. En esta página, profundizaremos en los diferentes puntos finales de usuario que puede utilizar para administrar usuarios mediante programación. Veremos cómo consultar, crear, actualizar y eliminar usuarios. {{ className: 'lead' }}
+Como sugiere el nombre, los usuarios son una parte central del MoneyTrack; la razón por la que existe el MoneyTrack es para que pueda tener conversaciones seguras con sus usuarios. En esta página, profundizaremos en los diferentes puntos finales de usuario que puede utilizar para administrar usuarios mediante programación. Veremos cómo consultar, crear, actualizar y eliminar usuarios. {{ className: 'lead' }}
 
 ## Modelo Usuario
 
@@ -39,8 +39,7 @@ El modelo de usuario contiene toda la información sobre sus usuarios, como su n
 <Row>
   <Col>
 
-    This endpoint allows you to retrieve a paginated list of all your users.
-    This endpoint allows you to perform an update on a user. Currently, the only attribute that can be updated on users is the `display_name` attribute which controls how a user appears in your user list in Protocol.
+    Este punto final le permite recuperar un usuario desde su email y contraseña
 
     ### Required attributes
 
@@ -62,8 +61,10 @@ El modelo de usuario contiene toda la información sobre sus usuarios, como su n
     <CodeGroup title="Request" tag="POST" label="/user">
 
     ```bash {{ title: 'cURL' }}
-    curl -G https://api.moneytrack.es/auth/ \
+    curl -L 'https://api.moneytrack.es/auth/' \
+      -H 'Content-Type: application/json' \
     ```
+
     </CodeGroup>
 
     ```json {{ title: 'Cuerpo' }}
