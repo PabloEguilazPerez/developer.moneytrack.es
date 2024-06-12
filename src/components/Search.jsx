@@ -1,17 +1,13 @@
 import { forwardRef, Fragment, useEffect, useId, useRef, useState } from 'react'
 import { useRouter } from 'next/router'
 import { createAutocomplete } from '@algolia/autocomplete-core'
-import { getAlgoliaResults } from '@algolia/autocomplete-preset-algolia'
 import { Dialog, Transition } from '@headlessui/react'
-import algoliasearch from 'algoliasearch/lite'
 import clsx from 'clsx'
+import indice from '../lib/indice';
 
-const searchClient = algoliasearch(
-  process.env.NEXT_PUBLIC_DOCSEARCH_APP_ID,
-  process.env.NEXT_PUBLIC_DOCSEARCH_API_KEY
-)
 
 function useAutocomplete() {
+
   let id = useId()
   let router = useRouter()
   let [autocompleteState, setAutocompleteState] = useState({})
@@ -29,50 +25,61 @@ function useAutocomplete() {
       },
       navigator: {
         navigate({ itemUrl }) {
-          autocomplete.setIsOpen(true)  
+          autocomplete.setIsOpen(true)
           router.push(itemUrl)
         },
       },
-      getSources() {
+      getDatos() {
         return [
           {
-            "name": "Hola",
-          },
-          {
-            "name": "Si",
+            "id": "1"
           }
         ]
-      },
+      }
     })
   )
+
+  /*
+  return [
+          {
+            sourceId: 'documentation',
+            getItemInputValue({ item }) {
+              return item.query
+            },
+            getItemUrl({ item }) {
+              let url = new URL(item.url)
+              return `${url.pathname}${url.hash}`
+            },
+            onSelect({ itemUrl }) {
+              router.push(itemUrl)
+            },
+            getItems({ query }) {
+              return getItems({
+                searchClient,
+                queries: [
+                  {
+                    query,
+                    indexName: process.env.NEXT_PUBLIC_DOCSEARCH_INDEX_NAME,
+                    params: {
+                      hitsPerPage: 5,
+                      highlightPreTag:
+                        '<mark class="underline bg-transparent text-emerald-500">',
+                      highlightPostTag: '</mark>',
+                    },
+                  },
+                ],
+              })
+            },
+          },
+        ]
+  */
 
   return { autocomplete, autocompleteState }
 }
 
-function resolveResult(result) {
-  let allLevels = Object.keys(result.hierarchy)
-  let hierarchy = Object.entries(result._highlightResult.hierarchy).filter(
-    ([, { value }]) => Boolean(value)
-  )
-  let levels = hierarchy.map(([level]) => level)
 
-  let level =
-    result.type === 'content'
-      ? levels.pop()
-      : levels
-          .filter(
-            (level) =>
-              allLevels.indexOf(level) <= allLevels.indexOf(result.type)
-          )
-          .pop()
 
-  return {
-    titleHtml: result._highlightResult.hierarchy[level].value,
-    hierarchyHtml: hierarchy
-      .slice(0, levels.indexOf(level))
-      .map(([, { value }]) => value),
-  }
-}
+
 
 function SearchIcon(props) {
   return (
@@ -127,63 +134,64 @@ function LoadingIcon(props) {
   )
 }
 
-function SearchResult({ result, resultIndex, autocomplete, collection }) {
+function SearchResult({ result, resultIndex, query }) {
   let id = useId()
-  let { titleHtml, hierarchyHtml } = resolveResult([{},{}])
 
   return (
-    <li
-      className={clsx(
-        'group block cursor-default px-4 py-3 aria-selected:bg-zinc-50 dark:aria-selected:bg-zinc-800/50',
-        resultIndex > 0 && 'border-t border-zinc-100 dark:border-zinc-800'
-      )}
-      aria-labelledby={`${id}-hierarchy ${id}-title`}
-      {...autocomplete.getItemProps({
-        item: result,
-        source: collection.source,
-      })}
-    >
-      <div
-        id={`${id}-title`}
-        aria-hidden="true"
-        className="text-sm font-medium text-zinc-900 group-aria-selected:text-emerald-500 dark:text-white"
-        dangerouslySetInnerHTML={{ __html: titleHtml }}
-      />
-      {hierarchyHtml.length > 0 && (
-        <div
-          id={`${id}-hierarchy`}
-          aria-hidden="true"
-          className="mt-1 truncate whitespace-nowrap text-2xs text-zinc-500"
-        >
-          {hierarchyHtml.map((item, itemIndex, items) => (
-            <Fragment key={itemIndex}>
-              <span dangerouslySetInnerHTML={{ __html: item }} />
-              <span
-                className={
-                  itemIndex === items.length - 1
-                    ? 'sr-only'
-                    : 'mx-2 text-zinc-300 dark:text-zinc-700'
+    <li className="group block cursor-default px-4 py-3 aria-selected:bg-zinc-50 dark:aria-selected:bg-zinc-800/50" aria-labelledby=":rt:-hierarchy :rt:-title" id=":r0:-documentation-item-0" role="option" aria-selected="true">
+      <div aria-hidden="true" className="text-sm font-medium text-zinc-900  dark:text-white">
+        <span>
+          <p className="">
+            {
+              (result.name ?? "").split("").map((e, index) => {
+                if ((query[index] ?? "").toLowerCase() === e.toLowerCase()) {
+                  return (
+                    <span className="text-emerald-500 dark:text-emerald-400" key={index}>
+                      {e}
+                    </span>
+                  )
                 }
-              >
-                /
+                return (
+                  <span key={index}>
+                    {e}
+                  </span>
+                )
+              })
+            }
+          </p>
+        </span>
+      </div>
+      <div aria-hidden="true" className="mt-1 truncate whitespace-nowrap text-2xs text-zinc-500">
+        {
+          result.path.split("/").map((e, index) => {
+            return (
+              <span className="text-zinc-400 dark:text-zinc-500" key={index}>
+                {e}
               </span>
-            </Fragment>
-          ))}
-        </div>
-      )}
+            )
+          })
+        }
+      </div>
     </li>
   )
 }
 
-function SearchResults({ autocomplete, query, collection }) {
-  if (collection.items.length === 0) {
+function SearchResults({ input }) {
+
+  const [results, setResults] = useState([{id: 1, title: 'title', path: 'hierarchy'}])
+
+  useEffect(() => {
+    setResults(search(input))
+  }, [input])
+
+  if (input === "") {
     return (
       <div className="p-6 text-center">
         <NoResultsIcon className="mx-auto h-5 w-5 stroke-zinc-900 dark:stroke-zinc-600" />
         <p className="mt-2 text-xs text-zinc-700 dark:text-zinc-400">
-          Nothing found for{' '}
+          Nothing found for
           <strong className="break-words font-semibold text-zinc-900 dark:text-white">
-            &lsquo;{query}&rsquo;
+            &lsquo;{input}&rsquo;
           </strong>
           . Please try again.
         </p>
@@ -192,18 +200,37 @@ function SearchResults({ autocomplete, query, collection }) {
   }
 
   return (
-    <ul role="list" {...autocomplete.getListProps()}>
-      {collection.items.map((result, resultIndex) => (
+    <ul role="list">
+      <li className="p-4 text-xs text-zinc-400 dark:text-zinc-500">
+      {results.length} results found for <strong className="font-semibold text-zinc-900 dark:text-white">
+          &lsquo;{input}&rsquo;
+        </strong>
+      </li>
+      {results.map((result, resultIndex) => (
         <SearchResult
           key={result.objectID}
           result={result}
           resultIndex={resultIndex}
-          autocomplete={autocomplete}
-          collection={collection}
+          query={input}
         />
       ))}
     </ul>
   )
+}
+
+function search(input) {
+
+  let r = []
+
+  console.log(indice)
+  indice.map((e) => {
+    if (e.name.toLowerCase().startsWith(input.toLowerCase()) || e.path.toLowerCase().startsWith(input.toLowerCase())) {
+      r.push(e)
+    }
+  })
+
+  return r
+
 }
 
 const SearchInput = forwardRef(function SearchInput(
@@ -395,9 +422,7 @@ function SearchDialog({ open, setOpen, className }) {
                     {autocompleteState.isOpen && (
                       <>
                         <SearchResults
-                          autocomplete={autocomplete}
-                          query={autocompleteState.query}
-                          collection={autocompleteState.collections[0]}
+                          input={autocomplete.getInputProps({}).value}
                         />
                       </>
                     )}

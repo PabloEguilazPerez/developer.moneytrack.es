@@ -1,0 +1,42 @@
+[
+    {
+        "id": 1,
+        "name": "Usuarios",
+        "path": "usuarios"
+    },
+    {
+        "id": 2,
+        "name": "Modelo Usuario",
+        "path": "usuario#modelo-usuario"
+    },
+    {
+        "id": 3,
+        "name": "Login a User",
+        "path": "usuario#login-a-user"
+    },
+    {
+        "id": 4,
+        "name": "Obtener usuario autenticado",
+        "path": "usuario#obtener-usuario-autenticado"
+    },
+    {
+        "id": 5,
+        "name": "Obtener sesiones activas",
+        "path": "usuario#obtener-sesiones-activas"
+    },
+    {
+        "id": 6,
+        "name": "Obtener Uso",
+        "path": "usuario#obtener-uso"
+    },
+    {
+        "id": 7,
+        "name": "Obtener Notificaciones",
+        "path": "usuario#obtener-notificaciones"
+    },
+    {
+        "id": 8,
+        "name": "Obtener Notificaciones no leidas",
+        "path": "usuario#obtener-notificaciones-no-leidas"
+    }
+]

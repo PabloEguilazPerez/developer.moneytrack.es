@@ -1,1 +1,0 @@
-{"pageProps":{"description":"In this guide, we’ll look at how authentication works. MoneyTrack offers two ways to authenticate your API requests: Basic authentication and OAuth2 with a token.","sections":[{"title":"OAuth2 con token","id":"o-auth2-con-token"},{"title":"Usando un SDK","id":"usando-un-sdk"}],"title":"Autenticación"},"__N_SSG":true}
