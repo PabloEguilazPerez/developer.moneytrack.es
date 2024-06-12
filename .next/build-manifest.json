@@ -5,8 +5,8 @@
   "devFiles": [],
   "ampDevFiles": [],
   "lowPriorityFiles": [
-    "static/_wyd7rCGnC-0AgevRo2mJ/_buildManifest.js",
-    "static/_wyd7rCGnC-0AgevRo2mJ/_ssgManifest.js"
+    "static/gYVQGhLeAjHQ9JdKwxSSO/_buildManifest.js",
+    "static/gYVQGhLeAjHQ9JdKwxSSO/_ssgManifest.js"
   ],
   "rootMainFiles": [],
   "pages": {
@@ -20,8 +20,8 @@
       "static/chunks/webpack-59c5c889f52620d6.js",
       "static/chunks/framework-ecc4130bc7a58a64.js",
       "static/chunks/main-05f6e1988691a294.js",
-      "static/css/10b2e65c3f34aa05.css",
-      "static/chunks/pages/_app-6e05f118e5ea99a9.js"
+      "static/css/2def747923d9dcab.css",
+      "static/chunks/pages/_app-5e11f287f8266e3d.js"
     ],
     "/_error": [
       "static/chunks/webpack-59c5c889f52620d6.js",
@@ -39,7 +39,7 @@
       "static/chunks/webpack-59c5c889f52620d6.js",
       "static/chunks/framework-ecc4130bc7a58a64.js",
       "static/chunks/main-05f6e1988691a294.js",
-      "static/chunks/pages/categorias-5ef08eaf58591e01.js"
+      "static/chunks/pages/categorias-07824ecd9ebb750a.js"
     ],
     "/empresas": [
       "static/chunks/webpack-59c5c889f52620d6.js",

@@ -2,7 +2,7 @@
     {
         "id": 1,
         "name": "Usuarios",
-        "path": "usuarios"
+        "path": "usuario"
     },
     {
         "id": 2,
@@ -38,5 +38,8 @@
         "id": 8,
         "name": "Obtener Notificaciones no leidas",
         "path": "usuario#obtener-notificaciones-no-leidas"
+    },
+    {
+        
     }
 ]

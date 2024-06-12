@@ -1,16 +1,1 @@
-{
-  "/_app": "pages/_app.js",
-  "/_error": "pages/_error.js",
-  "/_document": "pages/_document.js",
-  "/categorias": "pages/categorias.js",
-  "/": "pages/index.js",
-  "/errors": "pages/errors.js",
-  "/authentication": "pages/authentication.js",
-  "/empresas": "pages/empresas.js",
-  "/sdks": "pages/sdks.js",
-  "/pagination": "pages/pagination.js",
-  "/presupuestos": "pages/presupuestos.js",
-  "/usuario": "pages/usuario.js",
-  "/webhooks": "pages/webhooks.js",
-  "/transacciones": "pages/transacciones.js"
-}
+{"/_app":"pages/_app.js","/_error":"pages/_error.js","/_document":"pages/_document.js","/categorias":"pages/categorias.js","/authentication":"pages/authentication.js","/empresas":"pages/empresas.js","/pagination":"pages/pagination.js","/presupuestos":"pages/presupuestos.js","/errors":"pages/errors.js","/sdks":"pages/sdks.js","/":"pages/index.js","/transacciones":"pages/transacciones.js","/usuario":"pages/usuario.js","/webhooks":"pages/webhooks.js","/404":"pages/404.html"}

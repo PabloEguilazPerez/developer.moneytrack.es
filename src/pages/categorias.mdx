@@ -1,9 +1,143 @@
+export const description =
+  'On this page, we’ll dive into the different user endpoints you can use to manage users programmatically.'
+
+# Categorias
+
+Como sugiere el nombre, las categorias son una parte central del MoneyTrack. En esta página, profundizaremos en los diferentes puntos finales de usuario que puede utilizar para administrar categorias mediante programación. Veremos cómo consultar, crear, actualizar y eliminar categorias. {{ className: 'lead' }}
+
+## Modelo Categorias
+
+El modelo de categoria contiene toda la información sobre sus categorias, como su id y nombre.
+
+### Propiedades
+
+<Properties>
+  <Property name="id" type="int">
+    Identificador unico de la categoria
+  </Property>
+  <Property name="nombre" type="string">
+    Nombre de la categoria
+  </Property>
+</Properties>
+
+---
+
+## Listar Categorias {{ tag: 'GET', label: '/categorias' }}
+
+<Row>
+  <Col>
+
+    Listar todas las categorias
+
+  </Col>
+  <Col sticky>
+
+    <CodeGroup title="Request" tag="GET" label="/user">
+
+    ```bash {{ title: 'cURL' }}
+    curl -G https://api.moneytrack.es/categorias \
+      -H "Token: {token}" \
+    ```
+    </CodeGroup>
+
+    ```json {{ title: 'Respuesta' }}
+    [
+      {
+        "id": 1,
+        "nombre": "Recibos"
+      },
+      {
+        "id": 2,
+        "nombre": "Compras"
+      }
+    ]
+    ```
+
+  </Col>
+</Row>
+
+---
+
+## Obtener una categoria {{ tag: 'GET', label: '/categorias/:id' }}
+
+<Row>
+
+  <Col>
+    Obtener una categoria por id
+  </Col>
+  <Col sticky>
+
+    <CodeGroup title="Request" tag="GET" label="/categorias/:id">
+
+
+    ```bash {{ title: 'cURL' }}
+    curl -G https://api.moneytrack.es/categorias/:id \
+      -H "Token: {token}" \
+    ```
+    </CodeGroup>
+
+    ```json {{ title: 'Response' }}
+    {
+      "id": 1,
+      "nombre": "Recibos"
+    }
+    ```
+
+  </Col>
+  
+</Row>
+
+
+---
+
+## Crear Categoria {{ tag: 'POST', label: '/categorias' }}
+
+<Row>
+  <Col>
+
+    Crear una categoria
+
+    ### Atributos Requeridos
+
+    <Properties>
+      <Property name="nombre" type="string">
+        Nombre de la categoria
+      </Property>
+    </Properties>
+
+  </Col>
+  <Col sticky>
+
+    <CodeGroup title="Request" tag="POST" label="/categorias">
+
+      ```bash {{ title: 'cURL' }}
+      curl -G https://api.moneytrack.es/categorias/:id \
+        -H "Token: {token}" \
+      ```
+
+    </CodeGroup>
+
+    ```json {{ title: 'Response' }}
+    {
+      "id": 1,
+      "message": "Categoria creada"
+    }
+    ```
+
+  </Col>
+</Row>
+
+---
+
+## Actualizar Categoria {{ tag: 'PUT', label: '/categoria/:id' }}
+
+<Row>
+  <Col>
 
     Actualizar una categoria
 
     ### Atributos Requeridos
-<Row>
-  <Col>
+
     <Properties>
       <Property name="dato" type="string">
         Dato que se desea actualizar
@@ -21,7 +155,6 @@
 
     ```bash {{ title: 'cURL' }}
     curl -X PUT https://api.moneytrack.es/categorias/:id \
-      -H 'Content-Type: application/json' \
       -H "Token: {token}" \
     ```
     </CodeGroup>
