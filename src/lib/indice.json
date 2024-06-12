@@ -75,6 +75,8 @@
         "path": "categorias#borrar-una-categoria"
     },
     {
-        
+        "id": 16,
+        "name": "Productos",
+        "path": "productos"
     }
 ]

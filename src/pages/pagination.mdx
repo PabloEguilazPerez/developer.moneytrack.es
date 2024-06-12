@@ -11,14 +11,20 @@ Solo en ciertos casos en los que la API devuelva una lista de objetos se admite 
 <Row>
   <Col>
 
-    En este ejemplo, solicitamos las transacciones de un usuario. Como resultado, obtenemos una lista de 1 transaccion y podemos saber por el atributo <code>total</code> <code>pages</code> <code>per_page</code> 
+    En este ejemplo, solicitamos las transacciones de un usuario. Como resultado, obtenemos una lista de 1 transaccion. Podemos obtener mas informacion en los atributos <code>total</code> <code>pages</code> <code>per_page</code> 
 
     <Properties>
       <Property name="page" type="string">
-        Items por pagina
+        Pagina
+      </Property>
+      <Property name="pages" type="string">
+        Total de paginas
       </Property>
       <Property name="per_page" type="string">
-        Pagina
+        Items por pagina
+      </Property>
+      <Property name="total" type="string">
+        Total de items
       </Property>
     </Properties>
 
