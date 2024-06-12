@@ -1,0 +1,75 @@
+export const description =
+  'In this guide, we will talk about what happens when something goes wrong while you work with the API.'
+
+# Errores
+
+En esta guía, hablaremos sobre lo que sucede cuando algo sale mal mientras trabaja con la API. Los errores ocurren y en su mayoría serán suyos, no nuestros. Veamos algunos códigos de estado y tipos de errores que puede encontrar. {{ className: 'lead' }}
+
+Puede saber si su solicitud fue exitosa verificando el código de estado al recibir una respuesta de API. Si una respuesta no es exitosa, puede usar el tipo de error y el mensaje de error para descubrir qué salió mal y realizar una depuración rudimentaria (antes de comunicarse con el soporte).
+
+<Note>
+  Antes de comunicarse con el soporte técnico con un error, tenga en cuenta que el 99% de todos los errores reportados son, de hecho, errores del usuario. Por lo tanto, verifique cuidadosamente su código antes de comunicarse con el soporte de MoneyTrack.
+</Note>
+
+---
+
+## Códigos de estado
+
+Aquí hay una lista de las diferentes categorías de códigos de estado devueltos por la API de MoneyTrack. Úselos para saber si una solicitud fue exitosa.
+
+<Properties>
+  <Property name="200">
+    Indica que la petición ha tenido éxito. El significado de un éxito varía dependiendo del método HTTP
+  </Property>
+  <Property name="201">
+    Indica que la petición ha tenido éxito y se ha creado un recurso
+  </Property>
+  <Property name="400">
+    Indica que la petición no pudo ser procesada debido a un error de sintaxis
+  </Property>
+  <Property name="401">
+    Indica que se requiere autenticación para obtener la respuesta solicitada
+  </Property>
+  <Property name="403">
+    Indica que el servidor entiende la petición, pero se niega a autorizarla
+  </Property>
+  <Property name="404">
+    Indica que el servidor no pudo encontrar el recurso solicitado
+  </Property>
+  <Property name="500">
+    Indica que ha ocurrido un error en el servidor
+  </Property>
+</Properties>
+
+---
+
+## Tipos de errores
+
+<Row>
+  <Col>
+
+    Siempre que una solicitud no tenga éxito, la API del MoneyTrack devolverá una respuesta de error con un tipo y mensaje de error. Puede utilizar esta información para comprender mejor qué salió mal y cómo solucionarlo. La mayoría de los mensajes de error son bastante útiles y procesables.
+
+    Respuesta de error
+
+    <Properties>
+      <Property name="code">
+        Codigo de error
+      </Property>
+      <Property name="message">
+        Mensaje describiendo el error
+      </Property>
+    </Properties>
+
+  </Col>
+  <Col>
+
+    ```json {{ title: "Respues de error" }}
+    {
+      "code": 400,
+      "message": "No se ha podido crear la Categoria"
+    }
+    ```
+
+  </Col>
+</Row>

@@ -1,0 +1,124 @@
+export const description =
+  'On this page, we’ll dive into the different user endpoints you can use to manage users programmatically.'
+
+# Usuarios
+
+Como sugiere el nombre, los usuarios son una parte central del Protocolo; la razón por la que existe el Protocolo es para que pueda tener conversaciones seguras con sus usuarios. En esta página, profundizaremos en los diferentes puntos finales de usuario que puede utilizar para administrar usuarios mediante programación. Veremos cómo consultar, crear, actualizar y eliminar usuarios. {{ className: 'lead' }}
+
+## Modelo Usuario
+
+El modelo de usuario contiene toda la información sobre sus usuarios, como su nombre, apellidos y email.
+
+### Propiedades
+
+<Properties>
+  <Property name="nombre" type="string">
+    Nombre del usuario
+  </Property>
+  <Property name="apellidos" type="string">
+    Apellidos del usuario
+  </Property>
+  <Property name="email" type="string">
+    Email del usuario
+  </Property>
+  <Property name="subscription" type="string">
+    Nivel de subscripcion
+  </Property>
+  <Property name="enableBiometricLogin" type="boolean">
+    Si el usuario tiene activado el auautenticación biométrica
+  </Property>
+  <Property name="token" type="string">
+    Token para hacer las petitciones a la API
+  </Property>
+</Properties>
+
+---
+
+## Login a User {{ tag: 'POST', label: '/user' }}
+
+<Row>
+  <Col>
+
+    This endpoint allows you to retrieve a paginated list of all your users.
+    This endpoint allows you to perform an update on a user. Currently, the only attribute that can be updated on users is the `display_name` attribute which controls how a user appears in your user list in Protocol.
+
+    ### Required attributes
+
+    <Properties>
+      <Property name="email" type="string">
+        Email del usuario
+      </Property>
+      <Property name="password" type="string">
+        Contraseña del usuario
+      </Property>
+      <Property name="app" type="string">
+        App desde la que hace el login el usuario
+      </Property>
+    </Properties>
+
+  </Col>
+  <Col sticky>
+
+    <CodeGroup title="Request" tag="POST" label="/user">
+
+    ```bash {{ title: 'cURL' }}
+    curl -G https://api.moneytrack.es/auth/ \
+    ```
+    </CodeGroup>
+
+    ```json {{ title: 'Cuerpo' }}
+    {
+      "email": "fernandoalonso@gmail.com",
+      "password": "1234",
+      "app": "NombreDeMiApp"
+    }
+    ```
+
+    ```json {{ title: 'Response' }}
+    {
+      "nombre": "Fernando",
+      "apellidos": "Alonso",
+      "email": "fernandoalonso@gmail.com",
+      "subscription": "No Verificada",
+      "enableBiometricLogin": false,
+      "token": "7UtCS9yR8Rjb3VM9KcH10hRMpRv8JrDHvo"
+    }
+    ```
+
+  </Col>
+</Row>
+
+---
+
+## Obtener usuario autenticado {{ tag: 'GET', label: '/user' }}
+
+<Row>
+  <Col>
+
+    This endpoint allows you to add a new user to your user list in Protocol. To add a user, you must provide their Protocol username and phone number.
+
+  </Col>
+  <Col sticky>
+
+    <CodeGroup title="Request" tag="GET" label="/user">
+
+
+    ```bash {{ title: 'cURL' }}
+    curl -G https://api.moneytrack.es/auth/ \
+      -H "Token: {token}" \
+    ```
+    </CodeGroup>
+
+    ```json {{ title: 'Response' }}
+    {
+      "nombre": "Fernando",
+      "apellidos": "Alonso",
+      "email": "fernandoalonso@gmail.com",
+      "subscription": "No Verificada",
+      "enableBiometricLogin": false,
+      "token": "7UtCS9yR8Rjb3VM9KcH10hRMpRv8JrDHvo"
+    }
+    ```
+
+  </Col>
+</Row>

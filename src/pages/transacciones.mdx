@@ -1,0 +1,268 @@
+export const description =
+  'On this page, we’ll dive into the different user endpoints you can use to manage users programmatically.'
+
+# Transacciones
+
+Como sugiere el nombre, las transacciones son una parte central del MoneyTrack. En esta página, profundizaremos en los diferentes puntos finales de usuario que puede utilizar para administrar los presupuestos mediante programación. Veremos cómo consultar, crear, actualizar y eliminar transacciones. {{ className: 'lead' }}
+
+## Modelo Transaccion
+
+El modelo de transacciones contiene toda la información sobre sus categorias, como su id y concepto, importe.
+
+### Propiedades
+
+<Properties>
+  <Property name="id" type="int">
+    Identificador unico de la transaccion
+  </Property>
+  <Property name="fecha" type="date">
+    Fecha de la transaccion
+  </Property>
+  <Property name="importe" type="float">
+    Importe de la transaccion
+  </Property>
+  <Property name="concepto" type="string">
+    Concepto de la transaccion
+  </Property>
+  <Property name="categoria" type="Categoria">
+    Categoria Asociada <a href="./categorias">Categorias</a>
+  </Property>   
+  <Property name="empresa" type="Empresa">
+    Empresa Asociada <a href="./empresa">Empresa</a>
+  </Property>
+  <Property name="tipo" type="Tipo">
+    Tipo Asociado <a href="./tipos">Tipo</a>
+  </Property>
+</Properties>
+
+---
+
+## Listar Transacciones {{ tag: 'GET', label: '/transacciones' }}
+
+<Row>
+  <Col>
+
+    Listar todas las transacciones
+
+    ### Atributos Opcionales
+
+    <Properties>
+        <Property name="concepto" type="string">
+            Concepto de la transaccion
+        </Property>
+        <Property name="fecha" type="string">
+            Fecha de la transaccion
+        </Property>
+        <Property name="categoria_id" type="Categoria">
+            Id de la categoria <Button
+                href="/sdks"
+                variant="text"
+                arrow="right"
+                children="Consulte nuestra lista de SDK propios"
+              />
+        </Property>
+        <Property name="page" type="int">
+            Pagina
+        </Property>
+        <Property name="per_page" type="int">
+            Elementos por pagina
+        </Property>
+    </Properties>
+  </Col>
+  <Col sticky>
+
+    <CodeGroup title="Request" tag="GET" label="/transacciones">
+
+    ```bash {{ title: 'cURL' }}
+    curl -G https://api.moneytrack.es/transacciones \
+        -H "Token: {token}" \
+    ```
+    </CodeGroup>
+
+    ```json {{ title: 'Respuesta' }}
+    {
+      "data": [
+        {
+          "id": 1,
+          "fecha": "10/06/2024",
+          "importe": -12.2,
+          "concepto": "Prueba"
+        }
+      ],
+      "meta": {
+        "total": 1,
+        "pages": 1,
+        "page": 1,
+        "per_page": 30
+      }
+    }
+    ```
+
+  </Col>
+</Row>
+
+---
+
+## Obtener una transaccion {{ tag: 'GET', label: '/transacciones/:id' }}
+
+<Row>
+  <Col>
+
+    Obtener una transaccion por id
+
+  </Col>
+  <Col sticky>
+
+    <CodeGroup title="Request" tag="GET" label="/transacciones/:id">
+
+    ```bash {{ title: 'cURL' }}
+    curl -G https://api.moneytrack.es/transacciones/:id \
+        -H "Token: {token}" \
+    ```
+    </CodeGroup>
+
+    ```json {{ title: 'Response' }}
+    {
+      "id": 1,
+      "fecha": "10/06/2024",
+      "importe": -12.2,
+      "concepto": "Prueba",
+      "categoria": {
+        "id": 2,
+        "nombre": "Viajes"
+      },
+      "empresa": {
+        "id": 3,
+        "nombre": "Apple",
+        "logo": "https://api.moneytrack.es/cdn/empresas/AppleMusic.png"
+      },
+      "tipo": {
+        "id": 2,
+        "nombre": "Pago Con Tarjeta"
+      }
+    }
+    ```
+
+  </Col>
+</Row>
+
+---
+
+## Crear una Transaccion {{ tag: 'POST', label: '/transacciones' }}
+
+<Row>
+  <Col>
+
+    Crear una transaccion
+
+    ### Atributos Requeridos
+
+    <Properties>
+      <Property name="importe" type="float">
+        Importe de la transaccion
+      </Property>
+      <Property name="concepto" type="string">
+        Concepto de la transaccion
+      </Property>
+    </Properties>
+
+    ### Atributos Opcionales
+
+    <Properties>
+      <Property name="fecha" type="date">
+        Fecha de la transaccion
+      </Property>
+    </Properties>
+
+  </Col>
+  <Col sticky>
+
+    <CodeGroup title="Request" tag="POST" label="/transacciones">
+    ```bash {{ title: 'cURL' }}
+    curl -G https://api.moneytrack.es/transacciones \
+        -H "Token: {token}" \
+    ```
+    </CodeGroup>
+
+    ```json {{ title: 'Response' }}
+    {
+        "code": 200,
+        "message": "Transaccion insertada con exito",
+        "id": 1
+    }
+    ```
+
+  </Col>
+</Row>
+
+---
+
+## Actualizar una Transaccion {{ tag: 'PUT', label: '/transacciones/:id' }}
+
+<Row>
+  <Col>
+
+    Actualizar una Transaccion
+
+    ### Atributos Requeridos
+
+    <Properties>
+      <Property name="dato" type="string">
+        Dato que se desea actualizar
+      </Property>
+      <Property name="valor" type="string">
+        Nuevo valor
+      </Property>
+    </Properties>
+
+  </Col>
+  <Col sticky>
+
+    <CodeGroup title="Request" tag="PUT" label="/transacciones/:id">
+
+
+     ```bash {{ title: 'cURL' }}
+    curl -X PUT https://api.moneytrack.es/transacciones/:id \
+        -H "Token: {token}" \
+    ```
+    </CodeGroup>
+
+    ```json {{ title: 'Response' }}
+    {
+        "code": 200,
+        "message": "Transaccion actualizado"
+    }
+    ```
+
+  </Col>
+</Row>
+
+---
+
+## Eliminar una Transaccion {{ tag: 'DELETE', label: '/transacciones/:id' }}
+
+<Row>
+
+  <Col>
+    Eliminar una Transaccion
+  </Col>
+
+  <Col sticky>
+
+    <CodeGroup title="Request" tag="DELETE" label="/transacciones/:id">
+
+    ```bash {{ title: 'cURL' }}
+    curl -X DELETE https://api.moneytrack.es/transacciones/:id \
+        -H "Token: {token}" \
+    ```
+    </CodeGroup>
+
+    ```json {{ title: 'Response' }}
+    {
+        "message": "Transaccion eliminado"
+    }
+    ```
+  </Col>
+
+</Row>
+

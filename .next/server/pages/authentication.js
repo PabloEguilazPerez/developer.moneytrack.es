@@ -1,0 +1,34 @@
+"use strict";(()=>{var e={};e.id=999,e.ids=[999,888,660],e.modules={1323:(e,t)=>{Object.defineProperty(t,"l",{enumerable:!0,get:function(){return function e(t,n){return n in t?t[n]:"then"in t&&"function"==typeof t.then?t.then(t=>e(t,n)):"function"==typeof t&&"default"===n?t:void 0}}})},1024:(e,t,n)=>{n.a(e,async(e,a)=>{try{n.r(t),n.d(t,{config:()=>g,default:()=>u,getServerSideProps:()=>m,getStaticPaths:()=>h,getStaticProps:()=>p,reportWebVitals:()=>x,routeModule:()=>y,unstable_getServerProps:()=>b,unstable_getServerSideProps:()=>S,unstable_getStaticParams:()=>P,unstable_getStaticPaths:()=>k,unstable_getStaticProps:()=>f});var o=n(7093),r=n(5244),s=n(1323),i=n(3946),c=n(8910),d=n(4591),l=e([c,d]);[c,d]=l.then?(await l)():l;let u=(0,s.l)(d,"default"),p=(0,s.l)(d,"getStaticProps"),h=(0,s.l)(d,"getStaticPaths"),m=(0,s.l)(d,"getServerSideProps"),g=(0,s.l)(d,"config"),x=(0,s.l)(d,"reportWebVitals"),f=(0,s.l)(d,"unstable_getStaticProps"),k=(0,s.l)(d,"unstable_getStaticPaths"),P=(0,s.l)(d,"unstable_getStaticParams"),b=(0,s.l)(d,"unstable_getServerProps"),S=(0,s.l)(d,"unstable_getServerSideProps"),y=new o.PagesRouteModule({definition:{kind:r.x.PAGES,page:"/authentication",pathname:"/authentication",bundlePath:"",filename:""},components:{App:c.default,Document:i.default},userland:d});a()}catch(e){a(e)}})},4591:(e,t,n)=>{n.a(e,async(e,a)=>{try{n.r(t),n.d(t,{default:()=>d,getStaticProps:()=>l});var o=n(997),r=n(7834),s=e([r]);r=(s.then?(await s)():s)[0];let c=[{title:"OAuth2 con token",id:"o-auth2-con-token"},{title:"Usando un SDK",id:"usando-un-sdk"}];function i(e){let t=Object.assign({h1:"h1",p:"p",h2:"h2",pre:"pre",code:"code",a:"a"},(0,r.useMDXComponents)(),e.components),{Button:n}=t;return n||function(e,t){throw Error("Expected "+(t?"component":"object")+" `"+e+"` to be defined: you likely forgot to import, pass, or provide it.")}("Button",!0),(0,o.jsxs)(o.Fragment,{children:[o.jsx(t.h1,{children:"Autenticaci\xf3n"}),"\n",o.jsx(t.p,{children:"Deber\xe1 autenticar sus solicitudes para acceder a cualquiera de los puntos finales en la API del MoneyTrack. En esta gu\xeda, veremos c\xf3mo funciona la autenticaci\xf3n. El MoneyTrack ofrece una forma de autenticar sus solicitudes de API: OAuth2 con un token"}),"\n",o.jsx(t.h2,{id:"o-auth2-con-token",children:"OAuth2 con token"}),"\n",(0,o.jsxs)(t.p,{children:["La forma recomendada de autenticarse con la API del MoneyTrack es mediante OAuth2. Al establecer una conexi\xf3n mediante OAuth2, necesitar\xe1 su token de acceso; lo encontrar\xe1 en el ",o.jsx("a",{href:"/login",children:"panel de MoneyTrack"})," en la configuraci\xf3n de API. A continuaci\xf3n se explica c\xf3mo agregar el token al encabezado de la solicitud usando cURL:"]}),"\n",o.jsx(t.pre,{language:"bash",code:'curl https://api.moneytrack.es/auth/ \\\n  -H "Token: {token}"\n',children:o.jsx(t.code,{className:"language-bash",children:'<span><span style="color: var(--shiki-color-text)">curl https://api.moneytrack.es/auth/ \\</span></span>\n<span><span style="color: var(--shiki-color-text)">  -H </span><span style="color: var(--shiki-token-string-expression)">&quot;Token: {token}&quot;</span></span>\n<span></span>'})}),"\n",o.jsx(t.p,{children:"Mantenga siempre su token seguro y rein\xedcielo si sospecha que ha sido comprometido."}),"\n",o.jsx(t.h2,{id:"usando-un-sdk",children:"Usando un SDK"}),"\n",(0,o.jsxs)(t.p,{children:["Si utiliza uno de nuestros SDK oficiales, no tendr\xe1 que preocuparse por nada de lo anterior: obtenga su token de acceso desde el ",o.jsx(t.a,{href:"#",children:"Panel de MoneyTrack"})," en la configuraci\xf3n de API y la biblioteca cliente se encargar\xe1 del resto. Todas las bibliotecas cliente utilizan OAuth2 entre bastidores."]}),"\n",o.jsx("div",{className:"not-prose",children:o.jsx(n,{href:"/sdks",variant:"text",arrow:"right",children:"Consulte nuestra lista de SDK propios"})})]})}let d=function(e={}){let{wrapper:t}=Object.assign({},(0,r.useMDXComponents)(),e.components);return t?o.jsx(t,Object.assign({},e,{children:o.jsx(i,e)})):i(e)},l=()=>({props:JSON.parse(JSON.stringify({_provideComponents:r.useMDXComponents,description:"In this guide, we’ll look at how authentication works. MoneyTrack offers two ways to authenticate your API requests: Basic authentication and OAuth2 with a token.",sections:c,title:"Autenticaci\xf3n"}))});a()}catch(e){a(e)}})},3946:(e,t,n)=>{n.r(t),n.d(t,{default:()=>s});var a=n(997),o=n(6859);let r=`
+  let darkModeMediaQuery = window.matchMedia('(prefers-color-scheme: dark)')
+
+  updateMode()
+  darkModeMediaQuery.addEventListener('change', updateModeWithoutTransitions)
+  window.addEventListener('storage', updateModeWithoutTransitions)
+
+  function updateMode() {
+    let isSystemDarkMode = darkModeMediaQuery.matches
+    let isDarkMode = window.localStorage.isDarkMode === 'true' || (!('isDarkMode' in window.localStorage) && isSystemDarkMode)
+
+    if (isDarkMode) {
+      document.documentElement.classList.add('dark')
+    } else {
+      document.documentElement.classList.remove('dark')
+    }
+
+    if (isDarkMode === isSystemDarkMode) {
+      delete window.localStorage.isDarkMode
+    }
+  }
+
+  function disableTransitionsTemporarily() {
+    document.documentElement.classList.add('[&_*]:!transition-none')
+    window.setTimeout(() => {
+      document.documentElement.classList.remove('[&_*]:!transition-none')
+    }, 0)
+  }
+
+  function updateModeWithoutTransitions() {
+    disableTransitionsTemporarily()
+    updateMode()
+  }
+`;function s(){return(0,a.jsxs)(o.Html,{lang:"en",children:[(0,a.jsxs)(o.Head,{children:[a.jsx("script",{dangerouslySetInnerHTML:{__html:r}}),a.jsx("link",{rel:"icon",href:"https://developer-moneytrack-es.vercel.app/favicon.ico"})]}),(0,a.jsxs)("body",{className:"bg-white antialiased dark:bg-zinc-900",children:[a.jsx(o.Main,{}),a.jsx(o.NextScript,{})]})]})}},5244:(e,t)=>{var n;Object.defineProperty(t,"x",{enumerable:!0,get:function(){return n}}),function(e){e.PAGES="PAGES",e.PAGES_API="PAGES_API",e.APP_PAGE="APP_PAGE",e.APP_ROUTE="APP_ROUTE"}(n||(n={}))},2204:e=>{e.exports=require("@algolia/autocomplete-core")},236:e=>{e.exports=require("@algolia/autocomplete-preset-algolia")},3257:e=>{e.exports=require("algoliasearch/lite")},8103:e=>{e.exports=require("clsx")},2235:e=>{e.exports=require("focus-visible")},2785:e=>{e.exports=require("next/dist/compiled/next-server/pages.runtime.prod.js")},968:e=>{e.exports=require("next/head")},6689:e=>{e.exports=require("react")},6405:e=>{e.exports=require("react-dom")},997:e=>{e.exports=require("react/jsx-runtime")},7834:e=>{e.exports=import("@mdx-js/react")},6197:e=>{e.exports=import("framer-motion")},6912:e=>{e.exports=import("zustand")},7147:e=>{e.exports=require("fs")},1017:e=>{e.exports=require("path")},2781:e=>{e.exports=require("stream")},9796:e=>{e.exports=require("zlib")}};var t=require("../webpack-runtime.js");t.C(e);var n=e=>t(t.s=e),a=t.X(0,[567,739,859,910],()=>n(1024));module.exports=a})();

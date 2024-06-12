@@ -1,0 +1,242 @@
+export const description =
+  'On this page, we’ll dive into the different user endpoints you can use to manage users programmatically.'
+
+# Presupuestos
+
+Como sugiere el nombre, las presupuesto son una parte central del MoneyTrack. En esta página, profundizaremos en los diferentes puntos finales de usuario que puede utilizar para administrar los presupuestos mediante programación. Veremos cómo consultar, crear, actualizar y eliminar presupuestos. {{ className: 'lead' }}
+
+## Modelo Presupuesto
+
+El modelo de presupuesto contiene toda la información sobre sus categorias, como su id y nombre.
+
+### Propiedades
+
+<Properties>
+  <Property name="id" type="int">
+    Identificador unico del presupuesto
+  </Property>
+  <Property name="maximo" type="int">
+    Limite del presupuesto
+  </Property>
+  <Property name="ciclo" type="string">
+    Ciclo por el que se reinicia
+  </Property>
+  <Property name="categoria" type="Categoria">
+    Categoria Asociada <a href="./categorias">Categorias</a>
+  </Property>
+  <Property name="gastado" type="float">
+    Total gastado
+  </Property>
+  <Property name="historia" type="Object">
+    Historia por dia del presupuesto
+  </Property>
+</Properties>
+
+---
+
+## Listar Presupuestos {{ tag: 'GET', label: '/presupuestos' }}
+
+<Row>
+  <Col>
+
+    Listar todos los presupuestos
+
+  </Col>
+  <Col sticky>
+
+    <CodeGroup title="Request" tag="GET" label="/presupuestos">
+
+    ```bash {{ title: 'cURL' }}
+    curl -G https://api.moneytrack.es/presupuestos \
+      -H "Token: {token}" \
+    ```
+    </CodeGroup>
+
+    ```json {{ title: 'Respuesta' }}
+    [
+      {
+        "id": 19,
+        "maximo": 10,
+        "ciclo": "mensual",
+        "categoria": {
+          "id": 2,
+          "nombre": "Viajes"
+        },
+        "gastado": 0
+      }
+    ]
+    ```
+
+  </Col>
+</Row>
+
+---
+
+## Obtener un presupuesto {{ tag: 'GET', label: '/presupuestos/:id' }}
+
+<Row>
+  <Col>
+
+    Obtener un presupuesto por id
+
+  </Col>
+  <Col sticky>
+
+    <CodeGroup title="Request" tag="GET" label="/presupuestos/:id">
+
+
+    ```bash {{ title: 'cURL' }}
+    curl -G https://api.moneytrack.es/presupuestos/:id \
+      -H "Token: {token}" \
+    ```
+    </CodeGroup>
+
+    ```json {{ title: 'Response' }}
+    {
+      "id": 19,
+      "maximo": 50,
+      "ciclo": "mensual",
+      "categoria": {
+        "id": 2,
+        "nombre": "Viajes"
+      },
+      "gastado": 0,
+      "historial": [
+        {
+          "fecha": "2024-06-01",
+          "total": 0
+        },
+        {
+          "fecha": "2024-06-02",
+          "total": 12
+        },
+        {
+          "fecha": "2024-06-03",
+          "total": 12
+        },
+        {
+          "fecha": "2024-06-04",
+          "total": 16
+        },
+        {
+          "fecha": "2024-06-05",
+          "total": 16
+        },
+        ...
+      ]
+    }
+    ```
+
+  </Col>
+</Row>
+
+
+---
+
+## Crear Categoria {{ tag: 'POST', label: '/presupuestos' }}
+
+<Row>
+  <Col>
+
+    Crear una categoria
+
+    ### Atributos Requeridos
+
+    <Properties>
+      <Property name="categoria_id" type="string">
+        ID de la categoria a la que se quiere asociar
+      </Property>
+    </Properties>
+
+  </Col>
+  <Col sticky>
+
+    <CodeGroup title="Request" tag="POST" label="/presupuestos">
+
+
+     ```bash {{ title: 'cURL' }}
+    curl -G https://api.moneytrack.es/presupuestos \
+      -H "Token: {token}" \
+    ```
+    </CodeGroup>
+
+    ```json {{ title: 'Response' }}
+    {
+      "id": 1,
+      "message": "Presupuesto creado"
+    }
+    ```
+
+  </Col>
+</Row>
+
+---
+
+## Actualizar Presupuesto {{ tag: 'PUT', label: '/presupuestos/:id' }}
+
+<Row>
+  <Col>
+
+    Actualizar una presupuesto
+
+    ### Atributos Requeridos
+
+    <Properties>
+      <Property name="dato" type="string">
+        Dato que se desea actualizar
+      </Property>
+      <Property name="valor" type="string">
+        Nuevo valor
+      </Property>
+    </Properties>
+
+  </Col>
+  <Col sticky>
+
+    <CodeGroup title="Request" tag="PUT" label="/categoria/:id">
+
+    ```bash {{ title: 'cURL' }}
+    curl -X PUT https://api.moneytrack.es/presupuestos/:id \
+      -H "Token: {token}" \
+    ```
+
+    </CodeGroup>
+
+    ```json {{ title: 'Response' }}
+    {
+      "code": 200,
+      "message": "Presupuesto actualizado"
+    }
+    ```
+
+  </Col>
+</Row>
+
+---
+
+## Borrar una Presupuesto {{ tag: 'DELETE', label: '/presupuestos/:id' }}
+
+<Row>
+  <Col>
+    Borrar una presupuesto
+  </Col>
+  <Col sticky>
+
+    <CodeGroup title="Request" tag="DELETE" label="/presupuestos/:id">
+
+
+     ```bash {{ title: 'cURL' }}
+    curl -X DELETE https://api.moneytrack.es/presupuestos/:id \
+      -H "Token: {token}" \
+    ```
+    </CodeGroup>
+
+    ```json {{ title: 'Response' }}
+    {
+      "message": "Presupuesto eliminado"
+    }
+    ```
+
+  </Col>
+</Row>
+

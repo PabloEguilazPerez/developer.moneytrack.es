@@ -1,0 +1,53 @@
+export const description =
+  'In this guide, we will look at how to work with paginated responses when querying the MoneyTrack API'
+
+# Paginación
+
+En esta guía, veremos cómo trabajar con respuestas paginadas al consultar la API del MoneyTrack. De forma predeterminada, todas las respuestas limitan los resultados a treinta. Sin embargo, puede llegar hasta 100 agregando un parámetro `limit` a sus solicitudes. Si está utilizando una de las bibliotecas cliente oficiales de MoneyTrack API, no necesita preocuparse por la paginación, ya que todo se realiza detrás de escena.
+Solo en ciertos casos en los que la API devuelva una lista de objetos se admite la paginación. En las respuestas paginadas, los objetos están anidados en un atributo de datos y tienen un atributo `meta` que indica informacion sobre la pagina en la que se encuentra `page`, el numero de resultados `total` y los resultados por pagina `per_page`
+
+## Ejemplo usando paginacion
+
+<Row>
+  <Col>
+
+    En este ejemplo, solicitamos las transacciones de un usuario. Como resultado, obtenemos una lista de 1 transaccion y podemos saber por el atributo <code>total</code> <code>pages</code> <code>per_page</code> 
+
+    <Properties>
+      <Property name="page" type="string">
+        Items por pagina
+      </Property>
+      <Property name="per_page" type="string">
+        Pagina
+      </Property>
+    </Properties>
+
+  </Col>
+  <Col>
+
+    ```bash {{ title: 'Manual paginacion usando cURL' }}
+      curl -G https://api.moneytrack.es/transacciones?limit=2 \
+      -H "Token: {token}" \
+    ```
+
+    ```json {{ title: 'Paginated response' }}
+    {
+      "data": [
+        {
+          "id": 1,
+          "fecha": "10/06/2024",
+          "importe": -12.2,
+          "concepto": "Prueba"
+        }
+      ],
+      "meta": {
+        "total": 1,
+        "pages": 1,
+        "page": 1,
+        "per_page": 30
+      }
+    }
+    ```
+
+  </Col>
+</Row>

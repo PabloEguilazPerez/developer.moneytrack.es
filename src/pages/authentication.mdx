@@ -1,0 +1,32 @@
+export const description =
+  'In this guide, we’ll look at how authentication works. MoneyTrack offers two ways to authenticate your API requests: Basic authentication and OAuth2 with a token.'
+
+# Autenticación
+
+Deberá autenticar sus solicitudes para acceder a cualquiera de los puntos finales en la API del MoneyTrack. En esta guía, veremos cómo funciona la autenticación. El MoneyTrack ofrece una forma de autenticar sus solicitudes de API: OAuth2 con un token
+
+## OAuth2 con token
+
+La forma recomendada de autenticarse con la API del MoneyTrack es mediante OAuth2. Al establecer una conexión mediante OAuth2, necesitará su token de acceso; lo encontrará en el <a href="/login">panel de MoneyTrack</a> en la configuración de API. A continuación se explica cómo agregar el token al encabezado de la solicitud usando cURL:
+
+```bash {{ title: 'Example request with bearer token' }}<
+curl https://api.moneytrack.es/auth \
+  -H "Token: {token}"
+```
+
+Mantenga siempre su token seguro y reinícielo si sospecha que ha sido comprometido.
+
+---
+
+## Usando un SDK
+
+Si utiliza uno de nuestros SDK oficiales, no tendrá que preocuparse por nada de lo anterior: obtenga su token de acceso desde el [Panel de MoneyTrack](#) en la configuración de API y la biblioteca cliente se encargará del resto. Todas las bibliotecas cliente utilizan OAuth2 entre bastidores.
+
+<div className="not-prose">
+  <Button
+    href="/sdks"
+    variant="text"
+    arrow="right"
+    children="Consulte nuestra lista de SDK propios"
+  />
+</div>
