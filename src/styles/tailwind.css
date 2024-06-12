@@ -13,3 +13,8 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+* {
+  /* Ocultar Scrool Bar */
+  scrollbar-width: none;
+}

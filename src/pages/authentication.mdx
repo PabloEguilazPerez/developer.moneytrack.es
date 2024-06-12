@@ -9,12 +9,12 @@ Deberá autenticar sus solicitudes para acceder a cualquiera de los puntos final
 
 La forma recomendada de autenticarse con la API del MoneyTrack es mediante OAuth2. Al establecer una conexión mediante OAuth2, necesitará su token de acceso; lo encontrará en el <a href="/login">panel de MoneyTrack</a> en la configuración de API. A continuación se explica cómo agregar el token al encabezado de la solicitud usando cURL:
 
-```bash {{ title: 'Example request with bearer token' }}<
+```bash {{ title: 'Example request with bearer token' }}
 curl https://api.moneytrack.es/auth \
   -H "Token: {token}"
 ```
 
-Mantenga siempre su token seguro y reinícielo si sospecha que ha sido comprometido.
+Mantenga siempre el token seguro
 
 ---
 

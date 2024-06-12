@@ -40,6 +40,41 @@
         "path": "usuario#obtener-notificaciones-no-leidas"
     },
     {
+        "id": 9,
+        "name": "Categorias",
+        "path": "categorias"
+    },
+    {
+        "id": 10,
+        "name": "Modelo Categoria",
+        "path": "categorias#modelo-categoria"
+    },
+    {
+        "id": 11,
+        "name": "Listar Categorias",
+        "path": "categorias#listar-categorias"
+    },
+    {
+        "id": 12,
+        "name": "Obtener Categoria",
+        "path": "categorias#obtener-una-categoria"
+    },
+    {
+        "id": 13,
+        "name": "Crear Categoria",
+        "path": "categorias#crear-categoria"
+    },
+    {
+        "id": 14,
+        "name": "Actualizar Categoria",
+        "path": "categorias#actualizar-categoria"
+    },
+    {
+        "id": 15,
+        "name": "Borrar una Categoria",
+        "path": "categorias#borrar-una-categoria"
+    },
+    {
         
     }
 ]
