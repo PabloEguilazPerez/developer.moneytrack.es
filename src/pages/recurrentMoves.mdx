@@ -1,0 +1,247 @@
+export const description =
+  'On this page, we’ll dive into the different user endpoints you can use to manage users programmatically.'
+
+# Movimientos Recurrentes
+
+Como sugiere el nombre, los Movimientos Recurrentes son una parte central del MoneyTrack. En esta página, profundizaremos en los diferentes endpoints de la API que puede utilizar para administrar los movimientos recurrentes mediante programación. Veremos cómo consultar, crear, actualizar y eliminar movimientos recurrentes. {{ className: 'lead' }}
+
+## Modelo Movimientos Recurrentes
+
+El modelo de Movimiento Recurrente contiene toda la información sobre los Movimientos Recurrentes, como su id y estado o frecuencia.
+
+### Propiedades
+
+<Properties>
+  <Property name="id" type="int">
+    Identificador unico del movimiento
+  </Property>
+  <Property name="fechaInicio" type="string">
+    Fecha de creacion
+  </Property>
+  <Property name="fechaProximoPago" type="string">
+    Fecha del proximo movimiento
+  </Property>
+  <Property name="importe" type="float">
+    Importe del movimiento
+  </Property>
+  <Property name="categoria" type="Categoria">
+    Categoria Asociada [Categoria](/categoria).
+  </Property>
+  <Property name="description" type="string">
+    Descripcion del movimiento
+  </Property>
+  <Property name="frecuencia" type="string">
+    Frecuencia de los movimientos
+  </Property>
+  <Property name="estado" type="string">
+    Estado del movimiento
+  </Property>
+  <Property name="empresa" type="Empresa">
+    Descripcion del movimiento [Empresa](/empresas)
+  </Property>
+</Properties>
+
+---
+
+## Listar Movimientos Recurrentes {{ tag: 'GET', label: '/movimientosRecurrentes' }}
+
+<Row>
+  <Col>
+
+    Listar todos los Movimientos Recurrentes
+
+  </Col>
+  <Col sticky>
+
+    <CodeGroup title="Request" tag="GET" label="/movimientosRecurrentes">
+
+    ```bash {{ title: 'cURL' }}
+    curl -G https://api.moneytrack.es/movimientosRecurrentes \
+      -H "Token: {token}" \
+    ```
+    </CodeGroup>
+
+    ```json {{ title: 'Respuesta' }}
+    [
+        {
+            "id": 4,
+            "fechaInicio": "11/06/2024",
+            "fechaProximoPago": "13/06/2024",
+            "importe": -12,
+            "categoria": {
+                "id": 4,
+                "nombre": "Suscripciones"
+            },
+            "descripcion": "Nuevo movimiento recurrente",
+            "frecuencia": "diario",
+            "estado": "activo",
+            "empresa": {
+                "id": 6,
+                "nombre": "PayPal",
+                "logo": "https://api.moneytrack.es/cdn/empresas/PayPal.png"
+            }
+        }
+    ]
+    ```
+
+  </Col>
+</Row>
+
+---
+
+## Obtener un Movimiento Recurrente {{ tag: 'GET', label: '/movimientosRecurrentes/:id' }}
+
+<Row>
+  <Col>
+
+    Obtener un Movimiento Recurrente por id
+
+  </Col>
+  <Col sticky>
+
+    <CodeGroup title="Request" tag="GET" label="/movimientosRecurrentes/:id">
+
+
+    ```bash {{ title: 'cURL' }}
+    curl -G https://api.moneytrack.es/movimientosRecurrentes/:id \
+      -H "Token: {token}" \
+    ```
+    </CodeGroup>
+
+    ```json {{ title: 'Response' }}
+    {
+        "id": 4,
+        "fechaInicio": "11/06/2024",
+        "fechaProximoPago": "13/06/2024",
+        "importe": -12,
+        "categoria": {
+            "id": 4,
+            "nombre": "Suscripciones"
+        },
+        "descripcion": "Nuevo movimiento recurrente",
+        "frecuencia": "diario",
+        "estado": "activo",
+        "empresa": {
+            "id": 6,
+            "nombre": "PayPal",
+            "logo": "https://api.moneytrack.es/cdn/empresas/PayPal.png"
+        }
+    }
+    ```
+
+  </Col>
+</Row>
+
+
+---
+
+## Crear Movimiento Recurrente {{ tag: 'POST', label: '/movimientosRecurrentes/:id' }}
+
+<Row>
+  <Col>
+
+    Crear una Movimiento Recurrente
+
+    ### Atributos Requeridos
+
+    <Properties>
+      <Property name="importe" type="float">
+        Importe del movimiento
+      </Property>
+      <Property name="proximoPago" type="string">
+        Fecha del Proximo Pago
+      </Property>
+    </Properties>
+
+  </Col>
+  <Col sticky>
+
+    <CodeGroup title="Request" tag="POST" label="/movimientosRecurrentes">
+
+
+     ```bash {{ title: 'cURL' }}
+    curl -G https://api.moneytrack.es/movimientosRecurrentes \
+      -H "Token: {token}" \
+    ```
+    </CodeGroup>
+
+    ```json {{ title: 'Response' }}
+    {
+      "id": 1,
+      "message": "Movimientos Recurrente creado"
+    }
+    ```
+
+  </Col>
+</Row>
+
+---
+
+## Actualizar Movimiento Recurrente {{ tag: 'PUT', label: '/movimientosRecurrentes/:id' }}
+
+<Row>
+  <Col>
+
+    Actualizar una Movimiento Recurrente
+
+    ### Atributos Requeridos
+
+    <Properties>
+      <Property name="dato" type="string">
+        Dato que se desea actualizar
+      </Property>
+      <Property name="valor" type="string">
+        Nuevo valor
+      </Property>
+    </Properties>
+
+  </Col>
+  <Col sticky>
+
+    <CodeGroup title="Request" tag="PUT" label="/movimientosRecurrentes/:id">
+
+    ```bash {{ title: 'cURL' }}
+    curl -X PUT https://api.moneytrack.es/movimientosRecurrentes/:id \
+      -H "Token: {token}" \
+    ```
+
+    </CodeGroup>
+
+    ```json {{ title: 'Response' }}
+    {
+      "code": 200,
+      "message": "Movimiento Recurrente actualizado"
+    }
+    ```
+
+  </Col>
+</Row>
+
+---
+
+## Borrar una Movimiento Recurrente {{ tag: 'DELETE', label: '/movimientosRecurrentes/:id' }}
+
+<Row>
+  <Col>
+    Borrar una Movimiento Recurrente
+  </Col>
+  <Col sticky>
+
+    <CodeGroup title="Request" tag="DELETE" label="/movimientosRecurrentes/:id">
+
+
+     ```bash {{ title: 'cURL' }}
+    curl -X DELETE https://api.moneytrack.es/movimientosRecurrentes/:id \
+      -H "Token: {token}" \
+    ```
+    </CodeGroup>
+
+    ```json {{ title: 'Response' }}
+    {
+      "message": "Movimiento Recurrente eliminado"
+    }
+    ```
+
+  </Col>
+</Row>
+

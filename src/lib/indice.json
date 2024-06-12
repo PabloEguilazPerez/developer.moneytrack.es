@@ -76,7 +76,82 @@
     },
     {
         "id": 16,
-        "name": "Productos",
-        "path": "productos"
+        "name": "Prespuestos",
+        "path": "presupuestos"
+    },
+    {
+        "id": 17,
+        "name": "Modelo Presupuesto",
+        "path": "presupuestos#modelo-presupuesto"
+    },
+    {
+        "id": 18,
+        "name": "Listar Presupuestos",
+        "path": "presupuestos#listar-presupuestos"
+    },
+    {
+        "id": 19,
+        "name": "Obtener Presupuesto",
+        "path": "presupuestos#obtener-un-presupuesto"
+    },
+    {
+        "id": 20,
+        "name": "Crear Presupuesto",
+        "path": "presupuestos#crear-presupuesto"
+    },
+    {
+        "id": 21,
+        "name": "Actualizar Presupuesto",
+        "path": "presupuestos#actualizar-presupuesto"
+    },
+    {
+        "id": 22,
+        "name": "Borrar un Presupuesto",
+        "path": "presupuestos#borrar-un-presupuesto"
+    },
+    {
+        "id": 23,
+        "name": "Transacciones",
+        "path": "transacciones"
+    },
+    {
+        "id": 24,
+        "name": "Modelo Transaccion",
+        "path": "transacciones#modelo-transaccion"
+    },
+    {
+        "id": 25,
+        "name": "Listar Transacciones",
+        "path": "transacciones#listar-transacciones"
+    },
+    {
+        "id": 26,
+        "name": "Obtener Transaccion",
+        "path": "transacciones#obtener-una-transaccion"
+    },
+    {
+        "id": 27,
+        "name": "Crear Transaccion",
+        "path": "transacciones#crear-transaccion"
+    },
+    {
+        "id": 28,
+        "name": "Actualizar Transaccion",
+        "path": "transacciones#actualizar-transaccion"
+    },
+    {
+        "id": 29,
+        "name": "Eliminar Transaccion",
+        "path": "transacciones#eliminar-transaccion"
+    },
+    {
+        "id": 30,
+        "name": "Tipos de Transacciones",
+        "path": "/transacciones#listar-tipo-de-transacciones"
+    },
+    {
+        "id": 31,
+        "name": "Obtener Tipo de Transaccion",
+        "path": "/transacciones#obtener-tipo-de-transaccion"
     }
 ]
