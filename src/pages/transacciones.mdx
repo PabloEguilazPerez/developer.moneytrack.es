@@ -25,13 +25,13 @@ El modelo de transacciones contiene toda la información sobre sus categorias, c
     Concepto de la transaccion
   </Property>
   <Property name="categoria" type="Categoria">
-    Categoria Asociada [Categorias](/login).
+    Categoria Asociada [Categorias](/categorias).
   </Property>   
   <Property name="empresa" type="Empresa">
-    Empresa Asociada <a href="./empresa">Empresa</a>
+    Empresa Asociada [Empresa](/empresa).
   </Property>
   <Property name="tipo" type="Tipo">
-    Tipo Asociado <a href="./tipos">Tipo</a>
+    Tipo Asociado [Tipos](/tipos).
   </Property>
 </Properties>
 
@@ -54,12 +54,7 @@ El modelo de transacciones contiene toda la información sobre sus categorias, c
             Fecha de la transaccion
         </Property>
         <Property name="categoria_id" type="Categoria">
-            Id de la categoria <Button
-                href="/sdks"
-                variant="text"
-                arrow="right"
-                children="Consulte nuestra lista de SDK propios"
-              />
+            Id de la categoria [Categorias](/categorias).
         </Property>
         <Property name="page" type="int">
             Pagina

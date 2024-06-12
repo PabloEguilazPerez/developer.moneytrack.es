@@ -1,1 +1,1 @@
-{"version":1,"functions":{"/authentication":{},"/categorias":{},"/errors":{},"/presupuestos":{},"/sdks":{},"/pagination":{},"/transacciones":{},"/webhooks":{},"/usuario":{},"/":{}}}
+{"version":1,"functions":{"/authentication":{},"/errors":{},"/categorias":{},"/":{},"/pagination":{},"/sdks":{},"/presupuestos":{},"/usuario":{},"/webhooks":{},"/transacciones":{}}}

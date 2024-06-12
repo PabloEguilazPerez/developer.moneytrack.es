@@ -5,8 +5,8 @@
   "devFiles": [],
   "ampDevFiles": [],
   "lowPriorityFiles": [
-    "static/mKW5R6HttAN9pHde-_LbT/_buildManifest.js",
-    "static/mKW5R6HttAN9pHde-_LbT/_ssgManifest.js"
+    "static/PHe3o1WfVCevQn4VVlrG5/_buildManifest.js",
+    "static/PHe3o1WfVCevQn4VVlrG5/_ssgManifest.js"
   ],
   "rootMainFiles": [],
   "pages": {
@@ -69,7 +69,7 @@
       "static/chunks/webpack-59c5c889f52620d6.js",
       "static/chunks/framework-ecc4130bc7a58a64.js",
       "static/chunks/main-05f6e1988691a294.js",
-      "static/chunks/pages/transacciones-6cb1229907886a81.js"
+      "static/chunks/pages/transacciones-96424b55881227f3.js"
     ],
     "/usuario": [
       "static/chunks/webpack-59c5c889f52620d6.js",
