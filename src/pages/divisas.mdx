@@ -1,0 +1,136 @@
+export const description =
+  'On this page, we’ll dive into the different user endpoints you can use to manage users programmatically.'
+
+# Divisas
+
+Como sugiere el nombre, las divisas son una parte central del MoneyTrack; la razón por la que existe el MoneyTrack es para que pueda tener conversaciones seguras con sus usuarios. En esta página, profundizaremos en los diferentes puntos finales de usuario que puede utilizar para administrar usuarios mediante programación. Veremos cómo consultar, crear, actualizar y eliminar usuarios. {{ className: 'lead' }}
+
+## Modelo Divisa
+
+El modelo de divisa contiene toda la información sobre las divisas.
+
+### Propiedades
+
+<Properties>
+  <Property name="id" type="int">
+    Identificador unico de la divisa
+  </Property>
+  <Property name="nombre" type="string">
+    Nombre de la divisa
+  </Property>
+  <Property name="simbolo" type="string">
+    Simbolo de la divisa
+  </Property>
+  <Property name="locale" type="string">
+    Pais de la divisa
+  </Property>
+  <Property name="bandera" type="string">
+    URL con la bandera del pais al que pertence la divisa
+  </Property>
+</Properties>
+
+---
+
+## Lista de Divisas {{ tag: 'GET', label: '/divisas' }}
+
+<Row>
+  <Col>
+
+    Este punto final le permite recuperar una lista de divisas
+
+  </Col>
+  <Col sticky>
+
+    <CodeGroup title="Request" tag="POST" label="/divisas">
+
+    ```bash {{ title: 'cURL' }}
+    curl -G 'https://api.moneytrack.es/divisas' \
+        -H "Token: {token}" \
+    ```
+
+    </CodeGroup>
+
+    ```json {{ title: 'Response' }}
+    [
+        {
+            "id": 1,
+            "nombre": "Euro",
+            "abreviatura": "EUR",
+            "simbolo": "€",
+            "locale": "es_ES",
+            "bandera": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/Flag_of_Europe.svg/1200px-Flag_of_Europe.svg.png"
+        },
+        {
+            "id": 2,
+            "nombre": "Dólar estadounidense",
+            "abreviatura": "USD",
+            "simbolo": "$",
+            "locale": "es_US",
+            "bandera": "https://upload.wikimedia.org/wikipedia/en/thumb/a/a4/Flag_of_the_United_States.svg/1920px-Flag_of_the_United_States.svg.png"
+        }
+    ]
+    ```
+
+  </Col>
+</Row>
+
+---
+
+## Login a User {{ tag: 'GET', label: '/user' }}
+
+<Row>
+  <Col>
+
+    Este punto final le permite recuperar un usuario desde su email y contraseña
+
+    ### Required attributes
+
+    <Properties>
+      <Property name="email" type="string">
+        Email del usuario
+      </Property>
+      <Property name="password" type="string">
+        Contraseña del usuario
+      </Property>
+      <Property name="app" type="string">
+        App desde la que hace el login el usuario
+      </Property>
+    </Properties>
+
+  </Col>
+  <Col sticky>
+
+    <CodeGroup title="Request" tag="POST" label="/divisas">
+
+    ```bash {{ title: 'cURL' }}
+    curl -G 'https://api.moneytrack.es/divisas' \
+        -H "Token: {token}" \
+    ```
+
+    </CodeGroup>
+
+    ```json {{ title: 'Response' }}
+    [
+        {
+            "id": 1,
+            "nombre": "Euro",
+            "abreviatura": "EUR",
+            "simbolo": "€",
+            "locale": "es_ES",
+            "bandera": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/Flag_of_Europe.svg/1200px-Flag_of_Europe.svg.png"
+        },
+        {
+            "id": 2,
+            "nombre": "Dólar estadounidense",
+            "abreviatura": "USD",
+            "simbolo": "$",
+            "locale": "es_US",
+            "bandera": "https://upload.wikimedia.org/wikipedia/en/thumb/a/a4/Flag_of_the_United_States.svg/1920px-Flag_of_the_United_States.svg.png"
+        }
+    ]
+    ```
+
+  </Col>
+</Row>
+
+---
