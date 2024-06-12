@@ -1,0 +1,107 @@
+export const description =
+  'On this page, we’ll dive into the different user endpoints you can use to manage users programmatically.'
+
+# Empresas
+
+Como sugiere el nombre, las empresas son una parte central del MoneyTrack. En esta página, profundizaremos en los diferentes puntos finales de usuario que puede utilizar para administrar las empresas mediante programación. Veremos cómo consultar empresas. {{ className: 'lead' }}
+
+## Modelo Empresa
+
+El modelo de presupuesto contiene toda la información sobre las empresas, como su id y nombre.
+
+### Propiedades
+
+<Properties>
+  <Property name="id" type="int">
+    Identificador unico del presupuesto
+  </Property>
+  <Property name="nombre" type="string">
+    Nombre de la empresa
+  </Property>
+  <Property name="logo" type="string">
+    URL imagen del logo empresa
+  </Property>
+</Properties>
+
+---
+
+## Listar Empresas {{ tag: 'GET', label: '/empresas' }}
+
+<Row>
+  <Col>
+
+    Listar todos los Empresas
+
+  </Col>
+  <Col sticky>
+
+    <CodeGroup title="Request" tag="GET" label="/empresas">
+
+    ```bash {{ title: 'cURL' }}
+    curl -G https://api.moneytrack.es/empresas \
+      -H "Token: {token}" \
+    ```
+    </CodeGroup>
+
+    ```json {{ title: 'Respuesta' }}
+    [
+        {
+            "id": 1,
+            "nombre": "Alcampo",
+            "logo": "https://api.moneytrack.es/cdn/empresas/Alcampo.png"
+        },
+        {
+            "id": 2,
+            "nombre": "GitHub",
+            "logo": "https://api.moneytrack.es/cdn/empresas/GitHub.png"
+        }
+    ]
+    ```
+
+  </Col>
+</Row>
+
+---
+
+## Obtener una empresa {{ tag: 'GET', label: '/empresas/:id' }}
+
+<Row>
+  <Col>
+
+    Obtener una empresa por id
+
+  </Col>
+  <Col sticky>
+
+    <CodeGroup title="Request" tag="GET" label="/empresas/:id">
+
+
+    ```bash {{ title: 'cURL' }}
+    curl -G https://api.moneytrack.es/empresas/:id \
+      -H "Token: {token}" \
+    ```
+
+    </CodeGroup>
+
+    <CodeGroup title="Response" tag="" label="">
+
+    ```json {{ title: '200 OK' }}
+    {
+        "id": 1,
+        "nombre": "Alcampo",
+        "logo": "https://api.moneytrack.es/cdn/empresas/Alcampo.png"
+    }
+    ```
+
+    ```json {{ title: '401 Unauthorized' }}
+    {
+        "error": "Invalid token",
+        "token": "0uE9edABBqOoTR3CQMtE"
+    }
+    ```
+
+    </CodeGroup>
+
+  </Col>
+</Row>
+

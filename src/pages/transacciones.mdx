@@ -28,10 +28,10 @@ El modelo de transacciones contiene toda la información sobre sus categorias, c
     Categoria Asociada [Categorias](/categorias).
   </Property>   
   <Property name="empresa" type="Empresa">
-    Empresa Asociada [Empresa](/empresa).
+    Empresa Asociada [Empresa](/empresas).
   </Property>
   <Property name="tipo" type="Tipo">
-    Tipo Asociado [Tipos](/tipos).
+    Tipo Asociado [Tipos](/transacciones#listar-tipo-de-transacciones).
   </Property>
 </Properties>
 
@@ -261,3 +261,69 @@ El modelo de transacciones contiene toda la información sobre sus categorias, c
 
 </Row>
 
+
+---
+
+## Listar Tipo de Transacciones {{ tag: 'GET', label: '/transacciones/tipos' }}
+
+<Row>
+  <Col>
+
+    Listar todas las transacciones
+
+  </Col>
+  <Col sticky>
+
+    <CodeGroup title="Request" tag="GET" label="/transacciones/tipos">
+
+    ```bash {{ title: 'cURL' }}
+    curl -G https://api.moneytrack.es/transacciones/tipos \
+        -H "Token: {token}" \
+    ```
+    </CodeGroup>
+
+    ```json {{ title: 'Respuesta' }}
+    [
+      {
+        "id": 1,
+        "nombre": "Bizum"
+      },
+      {
+        "id": 2,
+        "nombre": "Pago Con Tarjeta"
+      }
+    ]
+    ```
+
+  </Col>
+</Row>
+
+---
+
+## Obtener Tipo de Transaccion {{ tag: 'GET', label: '/transacciones/tipos/:id' }}
+
+<Row>
+  <Col>
+
+    Obtener Tipo de Transaccion
+
+  </Col>
+  <Col sticky>
+
+    <CodeGroup title="Request" tag="GET" label="/transacciones/tipos/:id">
+
+    ```bash {{ title: 'cURL' }}
+    curl -G https://api.moneytrack.es/transacciones/tipos/:id \
+        -H "Token: {token}" \
+    ```
+    </CodeGroup>
+
+    ```json {{ title: 'Respuesta' }}
+    {
+      "id": 1,
+      "nombre": "Bizum"
+    }
+    ```
+
+  </Col>
+</Row>

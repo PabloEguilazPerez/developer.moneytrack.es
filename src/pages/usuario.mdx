@@ -122,3 +122,147 @@ El modelo de usuario contiene toda la información sobre sus usuarios, como su n
 
   </Col>
 </Row>
+
+---
+
+## Obtener sesiones activas {{ tag: 'GET', label: '/user' }}
+
+<Row>
+  <Col>
+
+    Obtener sesiones activas de un usuario
+
+  </Col>
+  <Col sticky>
+
+    <CodeGroup title="Request" tag="GET" label="/user/tokens">
+
+
+    ```bash {{ title: 'cURL' }}
+    curl -G https://api.moneytrack.es/user/tokens \
+      -H "Token: {token}" \
+    ```
+    </CodeGroup>
+
+    ```json {{ title: 'Response' }}
+    [
+      {
+        "id": 1,
+        "ip": "80.103.136.29",
+        "app": "Postman",
+        "lastUse": "2024-06-12 09:26:34",
+        "expired": "2024-06-13 09:26:34"
+      }
+    ]
+    ```
+
+  </Col>
+</Row>
+
+---
+
+## Obtener Uso {{ tag: 'GET', label: '/user' }}
+
+<Row>
+  <Col>
+
+    Obtener el uso de un Usuario
+
+  </Col>
+  <Col sticky>
+
+    <CodeGroup title="Request" tag="GET" label="/user/uso">
+
+
+    ```bash {{ title: 'cURL' }}
+    curl -G https://api.moneytrack.es/user/uso \
+      -H "Token: {token}" \
+    ```
+    </CodeGroup>
+
+    ```json {{ title: 'Response' }}
+    {
+      "transacciones": {
+        "total": 300,
+        "usados": 214,
+        "porcentaje": 71.33333333333334
+      },
+      "presupuestos": {
+        "total": 5,
+        "usados": 1,
+        "porcentaje": 20
+      },
+      "movimientosRecurrentes": {
+        "total": 3,
+        "usados": 1,
+        "porcentaje": 33.33333333333333
+      },
+      "webhooks": {
+        "total": 2,
+        "usados": 0,
+        "porcentaje": 0
+      },
+      "api": {
+        "total": 30000,
+        "usados": 572,
+        "porcentaje": 1.9066666666666665
+      },
+      "cambioDivisa": {
+        "total": 25,
+        "usados": 0,
+        "porcentaje": 0
+      }
+    }
+    ```
+
+  </Col>
+</Row>
+
+---
+
+## Obtener Notificaciones {{ tag: 'GET', label: '/notificaciones' }}
+
+<Row>
+  <Col>
+
+    Obtener las notificaciones de un usuario
+
+  </Col>
+  <Col sticky>
+
+    <CodeGroup title="Request" tag="GET" label="/notificaciones">
+
+
+    ```bash {{ title: 'cURL' }}
+    curl -G https://api.moneytrack.es/notificaciones \
+      -H "Token: {token}" \
+    ```
+    </CodeGroup>
+
+    ```json {{ title: 'Response' }}
+    {
+      "data": [
+        {
+          "id": 1,
+          "titulo": "Nuevo Inicio de Sesión",
+          "contenido": "Se ha iniciado sesión en su cuenta desde un nuevo dispositivo",
+          "vista": true
+        },
+        {
+          "id": 2,
+          "titulo": "Nuevo Inicio de Sesión",
+          "contenido": "Se ha iniciado sesión en su cuenta desde un nuevo dispositivo",
+          "vista": false
+        }
+      ],
+      "meta": {
+        "total": 2,
+        "pages": 1,
+        "page": 1,
+        "per_page": 30
+      }
+    }
+    ```
+
+  </Col>
+</Row>
