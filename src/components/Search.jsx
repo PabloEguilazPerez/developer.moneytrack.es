@@ -29,42 +29,18 @@ function useAutocomplete() {
       },
       navigator: {
         navigate({ itemUrl }) {
-          autocomplete.setIsOpen(true)
+          autocomplete.setIsOpen(true)  
           router.push(itemUrl)
         },
       },
       getSources() {
         return [
           {
-            sourceId: 'documentation',
-            getItemInputValue({ item }) {
-              return item.query
-            },
-            getItemUrl({ item }) {
-              let url = new URL(item.url)
-              return `${url.pathname}${url.hash}`
-            },
-            onSelect({ itemUrl }) {
-              router.push(itemUrl)
-            },
-            getItems({ query }) {
-              return getAlgoliaResults({
-                searchClient,
-                queries: [
-                  {
-                    query,
-                    indexName: process.env.NEXT_PUBLIC_DOCSEARCH_INDEX_NAME,
-                    params: {
-                      hitsPerPage: 5,
-                      highlightPreTag:
-                        '<mark class="underline bg-transparent text-emerald-500">',
-                      highlightPostTag: '</mark>',
-                    },
-                  },
-                ],
-              })
-            },
+            "name": "Hola",
           },
+          {
+            "name": "Si",
+          }
         ]
       },
     })
@@ -423,10 +399,6 @@ function SearchDialog({ open, setOpen, className }) {
                           query={autocompleteState.query}
                           collection={autocompleteState.collections[0]}
                         />
-                        <p className="flex items-center justify-end gap-2 border-t border-zinc-100 px-4 py-2 text-xs text-zinc-400 dark:border-zinc-800 dark:text-zinc-500">
-                          Search by{' '}
-                          <AlgoliaLogo className="h-4 fill-[#003DFF] dark:fill-zinc-400" />
-                        </p>
                       </>
                     )}
                   </div>

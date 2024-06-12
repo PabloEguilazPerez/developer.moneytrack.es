@@ -200,7 +200,7 @@ export const navigation = [
     links: [
       { title: 'Usuario', href: '/usuario' },
       { title: 'Categorias', href: '/categorias' },
-      { title: 'WebHooks', href: '/webhooks' },
+      { title: 'WebHook', href: '/webhook' },
       { title: 'Presupuestos', href: '/presupuestos' },
       { title: 'Transacciones', href: '/transacciones' },
       { title: 'Movimientos Recurrentes', href: '/recurrentMoves' },
