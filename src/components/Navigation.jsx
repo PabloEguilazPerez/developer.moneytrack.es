@@ -201,7 +201,8 @@ export const navigation = [
       { title: 'Usuario', href: '/usuario' },
       { title: 'Categorias', href: '/categorias' },
       { title: 'Presupuestos', href: '/presupuestos' },
-      { title: 'Transacciones', href: '/transacciones' }
+      { title: 'Transacciones', href: '/transacciones' },
+      { title: 'Empresas', href: '/empresas' }
     ],
   },
 ]
