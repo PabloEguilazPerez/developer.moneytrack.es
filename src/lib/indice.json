@@ -153,5 +153,80 @@
         "id": 31,
         "name": "Obtener Tipo de Transaccion",
         "path": "/transacciones#obtener-tipo-de-transaccion"
+    },
+    {
+        "id": 32,
+        "name": "Movimientos Recurrentes",
+        "path": "/movimientos-recurrentes"
+    },
+    {
+        "id": 33,
+        "name": "Modelo Movimiento Recurrente",
+        "path": "/movimientos-recurrentes#modelo-movimientos-recurrentes"
+    },
+    {
+        "id": 34,
+        "name": "Listar Movimientos Recurrentes",
+        "path": "/movimientos-recurrentes#listar-movimientos-recurrentes"
+    },
+    {
+        "id": 35,
+        "name": "Obtener Movimiento Recurrente",
+        "path": "/movimientos-recurrentes#obtener-un-movimiento-recurrente"
+    },
+    {
+        "id": 36,
+        "name": "Crear Movimiento Recurrente",
+        "path": "/movimientos-recurrentes#crear-movimiento-recurrente"
+    },
+    {
+        "id": 37,
+        "name": "Actualizar Movimiento Recurrente",
+        "path": "/movimientos-recurrentes#actualizar-movimiento-recurrente"
+    },
+    {
+        "id": 38,
+        "name": "Eliminar Movimiento Recurrente",
+        "path": "/movimientos-recurrentes#eliminar-movimiento-recurrente"
+    },
+    {
+        "id": 39,
+        "name": "Empresas",
+        "path": "/empresas"
+    },
+    {
+        "id": 40,
+        "name": "Modelo Empresa",
+        "path": "/empresas#modelo-empresa"
+    },
+    {
+        "id": 41,
+        "name": "Listar Empresas",
+        "path": "/empresas#listar-empresas"
+    },
+    {
+        "id": 42,
+        "name": "Obtener Empresa",
+        "path": "/empresas#obtener-una-empresa"
+    },
+    {
+        "id": 43,
+        "name": "Divisas",
+        "path": "/divisas"
+    },
+    {
+        "id": 44,
+        "name": "Modelo Divisa",
+        "path": "/divisas#modelo-divisa"
+    },
+    {
+        "id": 45,
+        "name": "Listar Divisas",
+        "path": "/divisas#lista-de-divisas"
+    },
+    {
+        "id": 46,
+        "name": "Obtener Divisa",
+        "path": "/divisas#obtener-una-divisa"
     }
 ]

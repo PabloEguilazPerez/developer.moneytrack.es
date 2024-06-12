@@ -203,7 +203,7 @@ export const navigation = [
       { title: 'WebHook', href: '/webhook' },
       { title: 'Presupuestos', href: '/presupuestos' },
       { title: 'Transacciones', href: '/transacciones' },
-      { title: 'Movimientos Recurrentes', href: '/recurrentMoves' },
+      { title: 'Movimientos Recurrentes', href: '/movimientos-recurrentes' },
       { title: 'Empresas', href: '/empresas' },
       { title: 'Divisas', href: '/divisas' }
     ],
