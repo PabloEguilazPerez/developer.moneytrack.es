@@ -145,7 +145,7 @@ function SearchResult({ result, resultIndex, query }) {
           <p className="">
             {
               (result.name ?? "").split("").map((e, index) => {
-                if ((query[index] ?? "").toLowerCase() === e.toLowerCase()) {
+                if ((query[index] ?? "").toLowerCase() === (e ?? "").toLowerCase()) {
                   return (
                     <span className="text-emerald-500 dark:text-emerald-400" key={index}>
                       {e}
@@ -228,7 +228,7 @@ function search(input) {
 
   console.log(indice)
   indice.map((e) => {
-    if (e.name.toLowerCase().startsWith(input.toLowerCase()) || e.path.toLowerCase().startsWith(input.toLowerCase())) {
+    if ((e.name ?? "").toLowerCase().startsWith((input ?? "").toLowerCase()) || (e.path ?? "").toLowerCase().startsWith((input ?? "").toLowerCase())) {
       if (limit > 0) {
         r.push(e)
         limit--
