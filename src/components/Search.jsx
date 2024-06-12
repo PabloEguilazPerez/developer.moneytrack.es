@@ -140,6 +140,7 @@ function SearchResult({ result, resultIndex, query }) {
   return (
     <li className="group block cursor-default px-4 py-3 aria-selected:bg-zinc-50 dark:aria-selected:bg-zinc-800/50" aria-labelledby=":rt:-hierarchy :rt:-title" id=":r0:-documentation-item-0" role="option" aria-selected="true">
       <a href={"/" + result.path} className="flex items-center gap-3">
+      <div>
       <div aria-hidden="true" className="text-sm font-medium text-zinc-900  dark:text-white">
         <span>
           <p className="">
@@ -172,6 +173,7 @@ function SearchResult({ result, resultIndex, query }) {
             )
           })
         }
+      </div>
       </div>
       </a>
     </li>
