@@ -4,6 +4,8 @@ import { createAutocomplete } from '@algolia/autocomplete-core'
 import { Dialog, Transition } from '@headlessui/react'
 import clsx from 'clsx'
 import indice from '../lib/indice';
+import Link from 'next/link'
+
 
 
 function useAutocomplete() {
@@ -139,7 +141,7 @@ function SearchResult({ result, resultIndex, query }) {
 
   return (
     <li className="group block cursor-default px-4 py-3 aria-selected:bg-zinc-50 dark:aria-selected:bg-zinc-800/50" aria-labelledby=":rt:-hierarchy :rt:-title" id=":r0:-documentation-item-0" role="option" aria-selected="true">
-      <a href={"/" + result.path} className="flex items-center gap-3">
+      <Link href={"/" + result.path} className="flex items-center gap-3">
       <div>
       <div aria-hidden="true" className="text-sm font-medium text-zinc-900  dark:text-white">
         <span>
@@ -175,14 +177,14 @@ function SearchResult({ result, resultIndex, query }) {
         }
       </div>
       </div>
-      </a>
+      </Link>
     </li>
   )
 }
 
 function SearchResults({ input }) {
 
-  const [results, setResults] = useState([{id: 1, title: 'title', path: 'hierarchy'}])
+  const [results, setResults] = useState([{id: 0, title: '', path: ''}])
 
   useEffect(() => {
     setResults(search(input))
@@ -228,7 +230,6 @@ function search(input) {
 
   let limit = 6
 
-  console.log(indice)
   indice.map((e) => {
     if ((e.name ?? "").toLowerCase().startsWith((input ?? "").toLowerCase()) || (e.path ?? "").toLowerCase().startsWith((input ?? "").toLowerCase())) {
       if (limit > 0) {

@@ -5,8 +5,8 @@
   "devFiles": [],
   "ampDevFiles": [],
   "lowPriorityFiles": [
-    "static/NzBs1UvJcyj2QN1nXLqR-/_buildManifest.js",
-    "static/NzBs1UvJcyj2QN1nXLqR-/_ssgManifest.js"
+    "static/ahlIg-8ZuzU7OEmO9W7uw/_buildManifest.js",
+    "static/ahlIg-8ZuzU7OEmO9W7uw/_ssgManifest.js"
   ],
   "rootMainFiles": [],
   "pages": {
@@ -21,7 +21,7 @@
       "static/chunks/framework-ecc4130bc7a58a64.js",
       "static/chunks/main-05f6e1988691a294.js",
       "static/css/7dd200f059c9eb70.css",
-      "static/chunks/pages/_app-6e8425ffaa3c04fe.js"
+      "static/chunks/pages/_app-a5eb5bc7bc4cb32e.js"
     ],
     "/_error": [
       "static/chunks/webpack-59c5c889f52620d6.js",
@@ -51,13 +51,19 @@
       "static/chunks/webpack-59c5c889f52620d6.js",
       "static/chunks/framework-ecc4130bc7a58a64.js",
       "static/chunks/main-05f6e1988691a294.js",
-      "static/chunks/pages/empresas-e027e0c415ec35fa.js"
+      "static/chunks/pages/empresas-5b1a8e1312113ce7.js"
     ],
     "/errors": [
       "static/chunks/webpack-59c5c889f52620d6.js",
       "static/chunks/framework-ecc4130bc7a58a64.js",
       "static/chunks/main-05f6e1988691a294.js",
       "static/chunks/pages/errors-38b76b91cfdb1492.js"
+    ],
+    "/movimientos-recurrentes": [
+      "static/chunks/webpack-59c5c889f52620d6.js",
+      "static/chunks/framework-ecc4130bc7a58a64.js",
+      "static/chunks/main-05f6e1988691a294.js",
+      "static/chunks/pages/movimientos-recurrentes-f1044145a51fb2cc.js"
     ],
     "/pagination": [
       "static/chunks/webpack-59c5c889f52620d6.js",
@@ -69,13 +75,7 @@
       "static/chunks/webpack-59c5c889f52620d6.js",
       "static/chunks/framework-ecc4130bc7a58a64.js",
       "static/chunks/main-05f6e1988691a294.js",
-      "static/chunks/pages/presupuestos-27f379815652d700.js"
-    ],
-    "/recurrentMoves": [
-      "static/chunks/webpack-59c5c889f52620d6.js",
-      "static/chunks/framework-ecc4130bc7a58a64.js",
-      "static/chunks/main-05f6e1988691a294.js",
-      "static/chunks/pages/recurrentMoves-f0806a4b8c69bc27.js"
+      "static/chunks/pages/presupuestos-d1dd5958186c8686.js"
     ],
     "/sdks": [
       "static/chunks/webpack-59c5c889f52620d6.js",

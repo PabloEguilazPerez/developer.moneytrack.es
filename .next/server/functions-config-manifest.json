@@ -1,1 +1,1 @@
-{"version":1,"functions":{"/authentication":{},"/categorias":{},"/divisas":{},"/empresas":{},"/errors":{},"/":{},"/pagination":{},"/presupuestos":{},"/recurrentMoves":{},"/sdks":{},"/transacciones":{},"/usuario":{},"/webhooks":{}}}
+{"version":1,"functions":{"/authentication":{},"/categorias":{},"/divisas":{},"/empresas":{},"/errors":{},"/":{},"/movimientos-recurrentes":{},"/presupuestos":{},"/sdks":{},"/transacciones":{},"/usuario":{},"/webhooks":{},"/pagination":{}}}

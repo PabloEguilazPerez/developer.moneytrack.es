@@ -29,6 +29,9 @@ export default function App({ Component, pageProps }) {
           <title>{`${pageProps.title} - MoneyTrack API Reference`}</title>
         )}
         <meta name="description" content={pageProps.description} />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="icon" href="https://developer-moneytrack-es.vercel.app/favicon.ico" />
+        <meta name="theme-color" content="#34d399" />
       </Head>
       <MDXProvider components={mdxComponents}>
         <Layout {...pageProps}>
